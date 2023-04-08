@@ -15,11 +15,13 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.time.Duration;
+import java.util.List;
 
 import static util.DriverUtils.driver;
 
 public class BaseActions {
     protected static WebDriverWait wait;
+    protected static WebElement element;
     private static int counter = 1;
     // Prints a comment to console
     protected void comment(String message) {
@@ -68,14 +70,39 @@ public class BaseActions {
         takeScreenShotBeforeClosing();
         driver.quit();
     }
+    // Waits for URL to change
+    public void waitForUrlChange(String url, Integer... time) {
+        int timeout = (time.length > 0) ? time[0] : Timeouts.TIMEOUT_MEDIUM;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        wait.until(ExpectedConditions.urlContains(url));
+    }
     // Waits until element is visible and returns WebElement obj
-    protected WebElement waitForVisible(By locator) {
-        wait  = new WebDriverWait(driver, Duration.ofSeconds(Timeouts.TIMEOUT_MEDIUM));
+    protected WebElement waitForElementToBeVisible(By locator, Integer... time) {
+        int timeout = (time.length > 0) ? time[0] : Timeouts.TIMEOUT_MEDIUM;
+        wait  = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    // Just waits for WebElement to be visible
-    protected void waitToBeVisible(By locator) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(Timeouts.TIMEOUT_MEDIUM));
+    // Waits for WebElement to be visible
+    protected void waitToBeVisible(By locator, Integer... time) {
+        int timeout = (time.length > 0) ? time[0] : Timeouts.TIMEOUT_MEDIUM;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    // Waits for element to not be visible
+    protected void waitNotToBeVisible(By locator, Integer... time) {
+        int timeout = (time.length > 0) ? time[0] : Timeouts.TIMEOUT_MEDIUM;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+    // Waits for element to be visible than returns a list of WebElements
+    protected List<WebElement> waitForVisibleElements(By lcoator, Integer... time) {
+        int timeout = (time.length > 0) ? time[0] : Timeouts.TIMEOUT_MEDIUM;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(lcoator));
+    }
+    // Clicks WebElement
+    protected void clickElement(By locator) {
+        element = waitForElementToBeVisible(locator);
+        element.click();
     }
 }
