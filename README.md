@@ -3,12 +3,12 @@ This is a template project for starting new QA automation projects using Seleniu
 
 Features:
 
-    Selenium-based framework for browser automation
-    TestNG for test case management and execution
-    WebDriverManager for easy driver setup and management (optional)
-    Preconfigured classes for page objects, test cases and utilities
-    Integrated screenshot capture for error reporting and debugging
-    Easy browser changing for cross-browser testing
+    1) Selenium-based framework for browser automation
+    2) TestNG for test case management and execution
+    3) WebDriverManager for easy driver setup and management (optional)
+    4) Preconfigured classes for page objects, test cases and utilities
+    5) Integrated screenshot capture for error reporting and debugging
+    6) Easy browser changing for cross-browser testing
 
 This template aims to provide a solid foundation for building reliable and maintainable automation projects, with best practices for automation testing baked in. You can easily customize the framework to fit your specific needs, and add more test cases and utilities as needed.
 
