@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment=".idea folder">
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/constants/BrowserName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/FirefoxDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/CommonStrings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Timeouts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/PageTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/BaseActions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/DriverUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/ReadProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestTemplate.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +33,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Exception" />
+        <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="fd2a0cb486de34bce32ab2450fd7297f14d8b15b" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -29,14 +54,38 @@
     &quot;assignee&quot;: &quot;r3ap3r17&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/r3ap3r17/ui-testing-project-template-java.git&quot;,
-    &quot;accountId&quot;: &quot;53f478a1-0f4b-4b10-8b4f-a77e255b7b23&quot;
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="release/v1.0.0" />
+                    <option name="lastUsedInstant" value="1734455973" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/r3ap3r17/selenify-framework.git",
+    "accountId": "a6338384-7657-4609-85f3-75f13fa2a3da"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -44,48 +93,66 @@
   <component name="ProjectId" id="2O0tgEx290g1nGii0ypVOiuGnUY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.SelenifyFactoryTest (1).executor": "Run",
+    "JUnit.SelenifyFactoryTest.executor": "Run",
+    "Maven.ui-testing-project-template [clean...].executor": "Run",
+    "Maven.ui-testing-project-template [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "TestNG.CreateChromeDriverInstanceTest.executor": "Run",
+    "TestNG.CreateFirefoxDriverInstanceTest.executor": "Run",
+    "TestNG.TestTemplate.executor": "Run",
+    "TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor": "Run",
+    "TestNG.driverInstance.executor": "Run",
+    "git-widget-placeholder": "release/v1.0.0",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
+    "last_opened_file_path": "F:/Coding_Projects/_IdeaProjects/gldataforce-selenite-framework",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editing.templates"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.TestTemplate">
-    <configuration name="TestTemplate" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ui-testing-project-template" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestTemplate" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+  <component name="RunManager">
+    <configuration name="SelenifyFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenify-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="selenify.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="selenify.unit" />
+      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyFactoryTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/131/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/133/geckodriver" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="&lt;default&gt;" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ui-testing-project-template" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
-      <properties />
-      <listeners />
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="selenify-framework" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/131/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/133/geckodriver" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.TestTemplate" />
-        <item itemvalue="TestNG.&lt;default&gt;" />
+        <item itemvalue="JUnit.SelenifyFactoryTest" />
+        <item itemvalue="JUnit.SelenifyFactoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -121,8 +188,19 @@
       <option name="project" value="LOCAL" />
       <updated>1726167237606</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=".idea folder">
+      <option name="closed" value="true" />
+      <created>1726167348897</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726167348897</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TerminalProjectNonSharedOptionsProvider">
+    <option name="startingDirectory" value="&quot;C:\Program Files\Git\bin\sh.exe&quot; --login -i" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
