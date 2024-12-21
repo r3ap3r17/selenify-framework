@@ -1,6 +1,9 @@
 package selenify.core;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class SelenifyBrowserBase implements SelenifyBrowser {
 	private SelenifyBrowser _selenifyBrowser;
@@ -46,6 +49,26 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
+	public WebElement findElementById(String id) {
+		return getSelenifyBrowser().findElementById(id);
+	}
+
+	@Override
+	public List<WebElement> findElementsByCss(String cssSelector) {
+		return getSelenifyBrowser().findElementsByCss(cssSelector);
+	}
+
+	@Override
+	public void waitForVisibleById(String id) {
+		getSelenifyBrowser().waitForVisibleById(id);
+	}
+
+	@Override
+	public void waitForPresentById(String id) {
+		getSelenifyBrowser().waitForPresentById(id);
+	}
+
+	@Override
 	public void clickElementById(String id) {
 		getSelenifyBrowser().clickElementById(id);
 	}
@@ -58,5 +81,10 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	@Override
 	public String getTextFromElementById(String id) {
 		return getSelenifyBrowser().getTextFromElementById(id);
+	}
+
+	@Override
+	public void selectOptionByText(String selectId, String optionText) {
+		getSelenifyBrowser().selectOptionByText(selectId, optionText);
 	}
 }

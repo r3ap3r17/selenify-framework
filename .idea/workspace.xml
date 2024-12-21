@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment=".idea folder">
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/constants/BrowserName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/FirefoxDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="initial setup">
+      <change afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyElementInteractionsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/selenium.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/test-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/CommonStrings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/Config.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/Timeouts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/PageTemplate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/BaseActions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/DriverUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ReadProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -75,12 +64,12 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/r3ap3r17/selenify-framework.git",
-    "accountId": "a6338384-7657-4609-85f3-75f13fa2a3da"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/r3ap3r17/selenify-framework.git&quot;,
+    &quot;accountId&quot;: &quot;a6338384-7657-4609-85f3-75f13fa2a3da&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -99,12 +88,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.SelenifyElementInteractionsTest.executor": "Run",
     "JUnit.SelenifyFactoryTest (1).executor": "Run",
     "JUnit.SelenifyFactoryTest.executor": "Run",
     "Maven.ui-testing-project-template [clean...].executor": "Run",
     "Maven.ui-testing-project-template [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "TestNG.CreateChromeDriverInstanceTest.executor": "Run",
     "TestNG.CreateFirefoxDriverInstanceTest.executor": "Run",
@@ -114,14 +105,36 @@
     "git-widget-placeholder": "release/v1.0.0",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
-    "last_opened_file_path": "F:/Coding_Projects/_IdeaProjects/gldataforce-selenite-framework",
+    "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SelenifyElementInteractionsTest">
+    <configuration name="SelenifyElementInteractionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenify-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="selenify.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="selenify.unit" />
+      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyElementInteractionsTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/131/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/133/geckodriver" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SelenifyFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="selenify-framework" />
       <extension name="coverage">
@@ -151,6 +164,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SelenifyElementInteractionsTest" />
         <item itemvalue="JUnit.SelenifyFactoryTest" />
         <item itemvalue="JUnit.SelenifyFactoryTest" />
       </list>
@@ -196,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726167348897</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="initial setup">
+      <option name="closed" value="true" />
+      <created>1734461919869</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734461919869</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -216,6 +238,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value=".idea folder" />
-    <option name="LAST_COMMIT_MESSAGE" value=".idea folder" />
+    <MESSAGE value="initial setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial setup" />
   </component>
 </project>
