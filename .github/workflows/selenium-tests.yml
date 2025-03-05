@@ -1,4 +1,4 @@
-name: Selenium Tests
+name: Selenium Unit Tests
 
 on:
   push:
@@ -37,6 +37,7 @@ jobs:
           wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
+          ls /usr/local/bin/chromedriver
           rm chromedriver_linux64.zip
 
       - name: Install Firefox and GeckoDriver
@@ -47,6 +48,7 @@ jobs:
           tar -xvzf geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
           chmod +x geckodriver
           sudo mv geckodriver /usr/local/bin/
+          ls /usr/local/bin/geckodriver
           rm geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
 
       - name: Verify Browsers and Drivers
