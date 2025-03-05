@@ -2,6 +2,7 @@ package selenify.core.decorators;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserBase;
 
@@ -16,7 +17,12 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 	@Override
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", path);
-		final WebDriver webDriver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		final WebDriver webDriver = new ChromeDriver(options);
 		getSelenifyBrowser().setWebDriver(webDriver);
 	}
 }
