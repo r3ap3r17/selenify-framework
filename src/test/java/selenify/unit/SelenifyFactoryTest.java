@@ -34,11 +34,17 @@ public class SelenifyFactoryTest {
 
 	@Test
 	public void createDriverAndOpenUrl() {
-		final SelenifyBrowser automatedBrowser =
-				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
-		automatedBrowser.init();
-		automatedBrowser.goTo(URL);
-		assertEquals(URL, automatedBrowser.getCurrentUrl());
-		automatedBrowser.destroy();
+		// TODO: Create workflow to run tests each push
+		final SelenifyBrowser automatedBrowser;
+		automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+		try {
+			automatedBrowser.init();
+			automatedBrowser.goTo(URL);
+			assertEquals(URL, automatedBrowser.getCurrentUrl());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			automatedBrowser.destroy();
+		}
 	}
 }
