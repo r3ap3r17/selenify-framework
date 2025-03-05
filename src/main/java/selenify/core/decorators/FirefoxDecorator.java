@@ -2,6 +2,7 @@ package selenify.core.decorators;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserBase;
 
@@ -16,7 +17,11 @@ public class FirefoxDecorator extends SelenifyBrowserBase {
 	@Override
 	public void init() {
 		System.setProperty("webdriver.gecko.driver", path);
-		final WebDriver webDriver = new FirefoxDriver();
+		FirefoxOptions options = new FirefoxOptions();
+		options.addArguments("--headless");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--no-sandbox");
+		final WebDriver webDriver = new FirefoxDriver(options);
 		getSelenifyBrowser().setWebDriver(webDriver);
 	}
 }
