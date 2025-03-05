@@ -1,4 +1,4 @@
-name: Selenium Unit Tests
+name: Selenify Unit Tests
 
 on:
   push:
