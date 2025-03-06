@@ -45,8 +45,8 @@ jobs:
           GECKODRIVER_VERSION=$(curl -sS https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r ".tag_name")
           wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
           tar -xvzf geckodriver-v0.36.0-linux64.tar.gz
-          chmod +x geckodriver/geckodriver
-          sudo mv geckodriver/geckodriver /usr/local/bin/
+          chmod +x geckodriver
+          sudo mv geckodriver /usr/local/bin/
           rm geckodriver-v0.36.0-linux64.tar.gz
 
       - name: Verify Browsers and Drivers
