@@ -86,32 +86,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.SelenifyElementInteractionsTest.executor": "Run",
-    "JUnit.SelenifyFactoryTest (1).executor": "Run",
-    "JUnit.SelenifyFactoryTest.executor": "Run",
-    "Maven.ui-testing-project-template [clean...].executor": "Run",
-    "Maven.ui-testing-project-template [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.CreateChromeDriverInstanceTest.executor": "Run",
-    "TestNG.CreateFirefoxDriverInstanceTest.executor": "Run",
-    "TestNG.TestTemplate.executor": "Run",
-    "TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor": "Run",
-    "TestNG.driverInstance.executor": "Run",
-    "git-widget-placeholder": "release/v1.0.0",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
-    "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.SelenifyElementInteractionsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SelenifyFactoryTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SelenifyFactoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ui-testing-project-template [clean...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ui-testing-project-template [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.CreateChromeDriverInstanceTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateFirefoxDriverInstanceTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TestTemplate.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.driverInstance.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;release/v1.0.0&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;F:/Coding_Projects/IdeaProjects/src/test/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
