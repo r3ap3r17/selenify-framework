@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="initial setup">
-      <change afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyElementInteractionsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/selenium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/test-page.html" afterDir="false" />
+    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="headless mode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +22,17 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fd2a0cb486de34bce32ab2450fd7297f14d8b15b" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -53,7 +50,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="release/v1.0.0" />
-                    <option name="lastUsedInstant" value="1734455973" />
+                    <option name="lastUsedInstant" value="1741201625" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1741201595" />
                   </RecentBranch>
                 </list>
               </option>
@@ -91,6 +92,7 @@
     "JUnit.SelenifyElementInteractionsTest.executor": "Run",
     "JUnit.SelenifyFactoryTest (1).executor": "Run",
     "JUnit.SelenifyFactoryTest.executor": "Run",
+    "JUnit.unit in selenify-framework.executor": "Run",
     "Maven.ui-testing-project-template [clean...].executor": "Run",
     "Maven.ui-testing-project-template [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -102,14 +104,14 @@
     "TestNG.TestTemplate.executor": "Run",
     "TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor": "Run",
     "TestNG.driverInstance.executor": "Run",
-    "git-widget-placeholder": "release/v1.0.0",
+    "git-widget-placeholder": "#5 on release/v1.0.0",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
     "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -117,7 +119,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SelenifyElementInteractionsTest">
+  <component name="RunManager" selected="JUnit.SelenifyFactoryTest (1)">
     <configuration name="SelenifyElementInteractionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="selenify-framework" />
       <extension name="coverage">
@@ -131,6 +133,23 @@
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/131/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/133/geckodriver" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelenifyFactoryTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenify-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="selenify.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="selenify.unit" />
+      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyFactoryTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/134/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/36/geckodriver" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,16 +176,29 @@
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/131/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/133/geckodriver" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/134/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/36/geckodriver" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="unit in selenify-framework" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenify-framework" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="directory" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/134/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/36/geckodriver" />
+      <dir value="$PROJECT_DIR$/src/test/java/selenify/unit" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.unit in selenify-framework" />
+        <item itemvalue="JUnit.SelenifyFactoryTest (1)" />
+        <item itemvalue="JUnit.SelenifyFactoryTest" />
         <item itemvalue="JUnit.SelenifyElementInteractionsTest" />
-        <item itemvalue="JUnit.SelenifyFactoryTest" />
-        <item itemvalue="JUnit.SelenifyFactoryTest" />
+        <item itemvalue="JUnit.unit in selenify-framework" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +250,63 @@
       <option name="project" value="LOCAL" />
       <updated>1734461919869</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added new actions and test page">
+      <option name="closed" value="true" />
+      <created>1734811735867</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734811735867</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added github workflow">
+      <option name="closed" value="true" />
+      <created>1741198863016</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741198863016</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added github workflow">
+      <option name="closed" value="true" />
+      <created>1741199670228</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741199670228</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added github workflow">
+      <option name="closed" value="true" />
+      <created>1741200151258</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741200151258</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added github workflow">
+      <option name="closed" value="true" />
+      <created>1741200285284</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741200285284</updated>
+    </task>
+    <task id="LOCAL-00011" summary="changed java version">
+      <option name="closed" value="true" />
+      <created>1741201050498</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1741201050498</updated>
+    </task>
+    <task id="LOCAL-00012" summary="headless mode">
+      <option name="closed" value="true" />
+      <created>1741201612034</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741201612034</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -239,6 +327,10 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value=".idea folder" />
     <MESSAGE value="initial setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial setup" />
+    <MESSAGE value="added new actions and test page" />
+    <MESSAGE value="added github workflow" />
+    <MESSAGE value="changed java version" />
+    <MESSAGE value="headless mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="headless mode" />
   </component>
 </project>
