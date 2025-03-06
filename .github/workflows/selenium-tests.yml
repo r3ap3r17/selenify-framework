@@ -1,11 +1,8 @@
 name: Selenify Unit Tests
 
 on:
-  push:
-    branches:
-      - main
-      - develop
   pull_request:
+    branches: [ "main" ]
 
 jobs:
   test:
@@ -34,22 +31,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
           CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          ls /usr/local/bin/chromedriver
-          rm chromedriver_linux64.zip
+          wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.35/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+          rm chromedriver-linux64.zip
 
       - name: Install Firefox and GeckoDriver
         run: |
           sudo apt-get install -y firefox
           GECKODRIVER_VERSION=$(curl -sS https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r ".tag_name")
-          wget https://github.com/mozilla/geckodriver/releases/download/$GECKODRIVER_VERSION/geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
-          tar -xvzf geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
+          tar -xvzf geckodriver-v0.36.0-linux64.tar.gz
           chmod +x geckodriver
           sudo mv geckodriver /usr/local/bin/
-          ls /usr/local/bin/geckodriver
-          rm geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
+          rm geckodriver-v0.36.0-linux64.tar.gz
 
       - name: Verify Browsers and Drivers
         run: |
@@ -57,6 +52,8 @@ jobs:
           chromedriver --version
           firefox --version
           geckodriver --version
+          ls /usr/local/bin | grep 'geckodriver'
+          ls /usr/local/bin | grep 'chromedriver'
 
       - name: Run Selenium Tests
         run: mvn test  -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver
