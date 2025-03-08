@@ -34,7 +34,6 @@ public class SelenifyFactoryTest {
 
 	@Test
 	public void createDriverAndOpenUrl() {
-		// TODO: Create workflow to run tests each push
 		final SelenifyBrowser automatedBrowser;
 		automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 		try {
