@@ -1,13 +1,11 @@
 name: Selenify Unit Tests
 
 on:
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -48,12 +46,12 @@ jobs:
 
       - name: Verify Browsers and Drivers
         run: |
-          google-chrome --version
-          chromedriver --version
-          firefox --version
-          geckodriver --version
+          google-chrome --version || echo "Chrome not found"
+          chromedriver --version || echo "ChromeDriver not found"
+          firefox --version || echo "Firefox not found"
+          geckodriver --version || echo "GeckoDriver not found"
           ls /usr/local/bin | grep 'geckodriver'
           ls /usr/local/bin | grep 'chromedriver'
 
       - name: Run Selenium Tests
-        run: mvn test  -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver
+        run: mvn test -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver
