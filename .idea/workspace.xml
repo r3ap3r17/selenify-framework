@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="headless mode">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/selenium-tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/selenium-tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="release/v1.0.0" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,12 +51,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="release/v1.0.0" />
-                    <option name="lastUsedInstant" value="1741201625" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1741457242" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1741201595" />
+                    <option name="branchName" value="release/v1.0.0" />
+                    <option name="lastUsedInstant" value="1741201625" />
                   </RecentBranch>
                 </list>
               </option>
@@ -104,7 +106,7 @@
     "TestNG.TestTemplate.executor": "Run",
     "TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor": "Run",
     "TestNG.driverInstance.executor": "Run",
-    "git-widget-placeholder": "#5 on release/v1.0.0",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
     "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources",
