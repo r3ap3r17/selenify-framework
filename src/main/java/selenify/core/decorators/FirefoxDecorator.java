@@ -18,6 +18,7 @@ public class FirefoxDecorator extends SelenifyBrowserBase {
 	public void init() {
 		System.setProperty("webdriver.gecko.driver", path);
 		FirefoxOptions options = new FirefoxOptions();
+		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
 		options.addArguments("--no-sandbox");
 		final WebDriver webDriver = new FirefoxDriver(options);

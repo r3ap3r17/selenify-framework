@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="headless mode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/FirefoxDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/FirefoxDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +106,7 @@
     &quot;TestNG.TestTemplate.executor&quot;: &quot;Run&quot;,
     &quot;TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor&quot;: &quot;Run&quot;,
     &quot;TestNG.driverInstance.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#5 on release/v1.0.0&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;release/v1.0.0&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;F:/Coding_Projects/IdeaProjects/src/test/java&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources&quot;,
@@ -119,58 +121,7 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SelenifyFactoryTest (1)">
-    <configuration name="SelenifyElementInteractionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="selenify-framework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="selenify.unit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="selenify.unit" />
-      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyElementInteractionsTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/131/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/133/geckodriver" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SelenifyFactoryTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="selenify-framework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="selenify.unit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="selenify.unit" />
-      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyFactoryTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/134/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/36/geckodriver" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SelenifyFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="selenify-framework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="selenify.unit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="selenify.unit" />
-      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyFactoryTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/131/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/133/geckodriver" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <module name="selenify-framework" />
       <option name="MAIN_CLASS_NAME" value="" />
@@ -195,9 +146,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.unit in selenify-framework" />
-        <item itemvalue="JUnit.SelenifyFactoryTest (1)" />
-        <item itemvalue="JUnit.SelenifyFactoryTest" />
-        <item itemvalue="JUnit.SelenifyElementInteractionsTest" />
         <item itemvalue="JUnit.unit in selenify-framework" />
       </list>
     </recent_temporary>
