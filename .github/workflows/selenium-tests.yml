@@ -53,5 +53,8 @@ jobs:
           ls /usr/local/bin | grep 'geckodriver'
           ls /usr/local/bin | grep 'chromedriver'
 
+      - name: Cleanup before tests
+        run: rm -rf /tmp/chrome-profile-* /tmp/firefox-profile-*
+
       - name: Run Selenium Tests
         run: mvn test -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver
