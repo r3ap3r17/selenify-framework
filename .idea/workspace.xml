@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="headless mode">
+    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="testing wf 5">
       <change beforePath="$PROJECT_DIR$/.github/workflows/selenium-tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/selenium-tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,7 +308,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741201612034</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="headless mode">
+      <option name="closed" value="true" />
+      <created>1741457404151</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1741457404151</updated>
+    </task>
+    <task id="LOCAL-00014" summary="testing wf 5">
+      <option name="closed" value="true" />
+      <created>1741457459406</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1741457459406</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -333,6 +349,7 @@
     <MESSAGE value="added github workflow" />
     <MESSAGE value="changed java version" />
     <MESSAGE value="headless mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="headless mode" />
+    <MESSAGE value="testing wf 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing wf 5" />
   </component>
 </project>

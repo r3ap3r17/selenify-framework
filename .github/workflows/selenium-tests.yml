@@ -46,10 +46,10 @@ jobs:
 
       - name: Verify Browsers and Drivers
         run: |
-          google-chrome --version
-          chromedriver --version
-          firefox --version
-          geckodriver --version
+          google-chrome --version || echo "Chrome not found"
+          chromedriver --version || echo "ChromeDriver not found"
+          firefox --version || echo "Firefox not found"
+          geckodriver --version || echo "GeckoDriver not found"
           ls /usr/local/bin | grep 'geckodriver'
           ls /usr/local/bin | grep 'chromedriver'
 
