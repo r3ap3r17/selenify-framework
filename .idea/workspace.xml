@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="testing wf 6">
+    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="testing wf 7">
       <change beforePath="$PROJECT_DIR$/.github/workflows/selenium-tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/selenium-tests.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/ChromeDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/FirefoxDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/FirefoxDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,39 +90,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.SelenifyElementInteractionsTest.executor": "Run",
-    "JUnit.SelenifyFactoryTest (1).executor": "Run",
-    "JUnit.SelenifyFactoryTest.executor": "Run",
-    "JUnit.unit in selenify-framework.executor": "Run",
-    "Maven.ui-testing-project-template [clean...].executor": "Run",
-    "Maven.ui-testing-project-template [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.CreateChromeDriverInstanceTest.executor": "Run",
-    "TestNG.CreateFirefoxDriverInstanceTest.executor": "Run",
-    "TestNG.TestTemplate.executor": "Run",
-    "TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor": "Run",
-    "TestNG.driverInstance.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
-    "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.SelenifyElementInteractionsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SelenifyFactoryTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SelenifyFactoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.unit in selenify-framework.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ui-testing-project-template [clean...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ui-testing-project-template [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.CreateChromeDriverInstanceTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CreateFirefoxDriverInstanceTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TestTemplate.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.driverInstance.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;F:/Coding_Projects/IdeaProjects/src/test/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SelenifyFactoryTest (1)">
+  <component name="RunManager" selected="JUnit.unit in selenify-framework">
     <configuration name="SelenifyElementInteractionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="selenify-framework" />
       <extension name="coverage">
@@ -332,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741458049801</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="testing wf 7">
+      <option name="closed" value="true" />
+      <created>1741458582867</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1741458582867</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -359,6 +368,7 @@
     <MESSAGE value="headless mode" />
     <MESSAGE value="testing wf 5" />
     <MESSAGE value="testing wf 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing wf 6" />
+    <MESSAGE value="testing wf 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing wf 7" />
   </component>
 </project>

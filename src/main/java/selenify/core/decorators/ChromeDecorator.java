@@ -18,13 +18,10 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", path);
 		ChromeOptions options = new ChromeOptions();
-		String uniqueProfile = "/tmp/chrome-profile-" + System.currentTimeMillis();
 		options.addArguments(
 				"--no-sandbox",
 				"--disable-gpu",
-				"--disable-dev-shm-usage",
-				"--user-data-dir=/tmp/chrome-profile",
-				"--user-data-dir=" + uniqueProfile
+				"--disable-dev-shm-usage"
 		);
 		final WebDriver webDriver = new ChromeDriver(options);
 		getSelenifyBrowser().setWebDriver(webDriver);

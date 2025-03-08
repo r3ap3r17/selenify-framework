@@ -20,8 +20,6 @@ public class FirefoxDecorator extends SelenifyBrowserBase {
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("--disable-gpu");
 		options.addArguments("--no-sandbox");
-		String uniqueProfile = "/tmp/firefox-profile-" + System.currentTimeMillis();
-		options.addArguments("-profile", uniqueProfile);
 		final WebDriver webDriver = new FirefoxDriver(options);
 		getSelenifyBrowser().setWebDriver(webDriver);
 	}
