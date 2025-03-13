@@ -1,6 +1,6 @@
 package selenify.core;
 
-import selenify.constants.BrowserName;
+import selenify.common.constants.BrowserName;
 import selenify.core.decorators.ChromeDecorator;
 import selenify.core.decorators.FirefoxDecorator;
 import selenify.core.decorators.WebDriverDecorator;

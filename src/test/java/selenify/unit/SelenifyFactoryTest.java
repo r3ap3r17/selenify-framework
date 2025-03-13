@@ -1,6 +1,6 @@
 package selenify.unit;
 
-import selenify.constants.BrowserName;
+import selenify.common.constants.BrowserName;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

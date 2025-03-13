@@ -10,30 +10,30 @@
 
     </style>
     <script>
-        /*
-            Print a message to the page
-        */
-        function interactionMessage(message) {
+        // Print a message to the page
+        const interactionMessage = (message) => {
             document.getElementById('message').textContent = message;
         }
-
-        /*
-            Create a new element on the page after 5 seconds
-        */
-        setTimeout(function() {
+        // Create a new element on the page after 5 seconds
+        setTimeout(() => {
             var newDiv = document.createElement("div");
             newDiv.setAttribute("id", "newdiv_element");
             newDiv.textContent = "I am a newly created div";
             document.body.appendChild(newDiv);
             document.getElementById("div3_element").style.display = "";
         }, 5000);
-
     </script>
 </head>
 <body>
+<!--Validate element interactions-->
 <div id="message"></div>
+<!--Test Locators-->
+<p id="p_element" class="p_element">Locators</p>
+<!--Test form elements and interactions-->
 <form id="form_element" onsubmit="interactionMessage('Form Submitted'); return false">
-    <button name="button_element" id="button_element" type="button" onclick="interactionMessage('Button Clicked')">Form Button</button>
+    <button id="button_element" class="button_element" name="button_element" type="button" onclick="interactionMessage('Button Clicked')">Form
+        Button
+    </button>
     <input name="text_element" id="text_element" type="text" oninput="interactionMessage('Text Input Changed')">
     <select name="select_element" id="select_element" onchange="interactionMessage('Select Changed')">
         <optgroup label="Group 1">
@@ -54,7 +54,8 @@
     <div><input class="selenify-radio-btn" name="radio_group" id="radio1_element" type="radio" name="color" value="blue"
                 onchange="interactionMessage('Radio Button 1 Changed')"> Blue
     </div>
-    <div><input class="selenify-radio-btn" name="radio_group" id="radio2_element" type="radio" name="color" value="green"
+    <div><input class="selenify-radio-btn" name="radio_group" id="radio2_element" type="radio" name="color"
+                value="green"
                 onchange="interactionMessage('Radio Button 2 Changed')"> Green
     </div>
     <div><input class="selenify-radio-btn" name="radio_group" id="radio3_element" type="radio" name="color" value="red"
@@ -68,10 +69,13 @@
     </div>
     <input id="submit_element" type="submit">
 </form>
+<!--Test normal and broken image-->
 <img id="image1_element" src="selenium.png" width="128" height="128" onclick="interactionMessage('Image 1 Clicked')">
 <img id="image2_element" src="java.png" width="128" height="128" onclick="interactionMessage('Image 2 Clicked')">
+<!--Test waits-->
 <div id="div_element" onclick="interactionMessage('Div Clicked')">I am a div</div>
 <div id="div2_element" onclick="interactionMessage('Div 2 Clicked')">I am a div too</div>
 <div id="div3_element" style="display: none" onclick="interactionMessage('Div 3 Clicked')">I am a hidden div</div>
+<div id="div4_element" style="display: none" onclick="interactionMessage('Div 4 Clicked')">I am a hidden div</div>
 </body>
 </html>
