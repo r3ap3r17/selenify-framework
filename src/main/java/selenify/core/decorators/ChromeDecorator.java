@@ -8,20 +8,32 @@ import selenify.core.SelenifyBrowserBase;
 
 public class ChromeDecorator extends SelenifyBrowserBase {
 	private static String path;
+	private final boolean headless;
 
 	public ChromeDecorator(final SelenifyBrowser automatedBrowser, String path) {
 		super(automatedBrowser);
 		this.path = path;
+		this.headless = false;
+	}
+
+	public ChromeDecorator(boolean headless, final SelenifyBrowser automatedBrowser, String path) {
+		super(automatedBrowser);
+		this.path = path;
+		this.headless = headless;
 	}
 
 	@Override
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", path);
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
+		final ChromeOptions options = new ChromeOptions();
+		if (headless) {
+			options.addArguments("--headless");
+			options.addArguments("--disable-gpu");
+			options.addArguments("--disable-dev-shm-usage");
+		}
 		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
+
+		options.merge(getDesiredCapabilities());
 		final WebDriver webDriver = new ChromeDriver(options);
 		getSelenifyBrowser().setWebDriver(webDriver);
 	}

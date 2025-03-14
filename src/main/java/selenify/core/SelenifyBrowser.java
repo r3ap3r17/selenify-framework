@@ -2,6 +2,7 @@ package selenify.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.utils.locators.impl.Locator;
 
 import java.util.List;
@@ -11,6 +12,8 @@ public interface SelenifyBrowser {
 	WebDriver getWebDriver();
 
 	void setWebDriver(WebDriver webDriver);
+
+	DesiredCapabilities getDesiredCapabilities();
 
 	void init();
 

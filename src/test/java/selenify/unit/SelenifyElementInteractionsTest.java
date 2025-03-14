@@ -53,8 +53,8 @@ public class SelenifyElementInteractionsTest extends LocatorUtil {
 	@Parameterized.Parameters
 	public static Iterable data() {
 		return Arrays.asList(
-				BrowserName.CHROME,
-				BrowserName.FIREFOX
+				BrowserName.FIREFOX_HEADLESS,
+				BrowserName.FIREFOX_HEADLESS
 		);
 	}
 

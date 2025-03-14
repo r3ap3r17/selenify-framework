@@ -17,11 +17,11 @@ public class LocatorUtil implements LocatorProvider {
 	public WebElement getElement(
 			WebDriver webDriver,
 			By by,
-			Duration waitTime,
+			int waitTime,
 			ExpectedConditionCallback expectedConditionCallback) {
 
 		try {
-			final WebDriverWait wait = new WebDriverWait(webDriver, waitTime);
+			final WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(waitTime));
 			final ExpectedCondition<WebElement> condition =
 					expectedConditionCallback.getExpectedCondition(by);
 			return wait.until(condition);

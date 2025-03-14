@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class WebDriverDecorator extends SelenifyBrowserBase {
-	private static final Duration DEFAULT_TIMEOUT = Timeouts.MEDIUM;
+	private static final int DEFAULT_TIMEOUT = Timeouts.MEDIUM;
 	private WebDriver webDriver;
 	private static final LocatorUtil LOCATOR_UTIL = new LocatorUtil();
 
@@ -64,57 +64,49 @@ public class WebDriverDecorator extends SelenifyBrowserBase {
 
 	@Override
 	public void waitForVisible(Locator locator) {
-		LOCATOR_UTIL.getElement(
-				getWebDriver(),
-				locator.getBy(),
-				DEFAULT_TIMEOUT,
-				ExpectedConditions::visibilityOfElementLocated);
+		waitForVisible(locator, DEFAULT_TIMEOUT);
 	}
 
 	@Override
-	public void waitForVisible(Locator locator, int waitTime) {
+	public void waitForVisible(Locator locator, int waitTimeMilis) {
 		LOCATOR_UTIL.getElement(
 				getWebDriver(),
 				locator.getBy(),
-				Duration.ofMillis(waitTime),
+				waitTimeMilis,
 				ExpectedConditions::visibilityOfElementLocated);
 	}
 
 	@Override
 	public void waitForPresent(Locator locator) {
-		LOCATOR_UTIL.getElement(
-				getWebDriver(),
-				locator.getBy(),
-				DEFAULT_TIMEOUT,
-				ExpectedConditions::presenceOfElementLocated);
+		waitForPresent(locator, DEFAULT_TIMEOUT);
 	}
 
 	@Override
-	public void waitForPresent(Locator locator, int waitTime) {
+	public void waitForPresent(Locator locator, int waitTimeMilis) {
 		LOCATOR_UTIL.getElement(
 				getWebDriver(),
 				locator.getBy(),
-				Duration.ofMillis(waitTime),
+				waitTimeMilis,
 				ExpectedConditions::presenceOfElementLocated);
 	}
 
 	@Override
 	public void clickElement(Locator locator) {
-		getWebDriver().findElement(locator.getBy()).click();
+		findElement(locator).click();
 	}
 
 	@Override
 	public void typeToElement(Locator locator, String text) {
-		getWebDriver().findElement(locator.getBy()).sendKeys(text);
+		findElement(locator).sendKeys(text);
 	}
 
 	@Override
 	public String getTextFromElement(Locator locator) {
-		return getWebDriver().findElement(locator.getBy()).getText();
+		return findElement(locator).getText();
 	}
 
 	@Override
 	public void selectOptionByText(Locator locator, String optionText) {
-		new Select(getWebDriver().findElement(locator.getBy())).selectByVisibleText(optionText);
+		new Select(findElement(locator)).selectByVisibleText(optionText);
 	}
 }

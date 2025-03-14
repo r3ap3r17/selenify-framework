@@ -28,7 +28,9 @@ public class SelenifyFactoryTest {
 	public static Iterable data() {
 		return Arrays.asList(
 				BrowserName.CHROME,
-				BrowserName.FIREFOX
+				BrowserName.FIREFOX,
+				BrowserName.CHROME_HEADLESS,
+				BrowserName.FIREFOX_HEADLESS
 		);
 	}
 

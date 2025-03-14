@@ -2,9 +2,11 @@ package selenify.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.utils.locators.impl.Locator;
 
 import java.util.List;
+import java.util.Objects;
 
 public class SelenifyBrowserBase implements SelenifyBrowser {
 	private SelenifyBrowser _selenifyBrowser;
@@ -27,6 +29,14 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	@Override
 	public void setWebDriver(WebDriver webDriver) {
 		getSelenifyBrowser().setWebDriver(webDriver);
+	}
+
+	@Override
+	public DesiredCapabilities getDesiredCapabilities() {
+		if (getSelenifyBrowser() != null) {
+			return getSelenifyBrowser().getDesiredCapabilities();
+		}
+		return new DesiredCapabilities();
 	}
 
 	@Override
