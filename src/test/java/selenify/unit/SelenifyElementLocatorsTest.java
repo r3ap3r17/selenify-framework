@@ -5,10 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
+import selenify.common.exceptions.SelenifyLocatorException;
 import selenify.common.exceptions.SelenifyWebElementException;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserFactory;
-import selenify.utils.locators.impl.Locator;
 import selenify.utils.locators.impl.LocatorUtil;
 
 import java.net.URISyntaxException;
@@ -23,13 +23,6 @@ public class SelenifyElementLocatorsTest extends LocatorUtil {
 	private BrowserName browser;
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
-	// Element id's
-	public final Locator ID_MESSAGE = byId("message");
-	public final Locator ID_BUTTON = byId("button_element");
-	public final Locator XPATH_BUTTON = byXpath("//button[@id='button_element']");
-	public final Locator CSS_BUTTON = byCss("#button_element");
-	public final Locator NAME_BUTTON = byName("button_element");
-	public final Locator CLASS_BUTTON = byClass("button_element");
 
 	@BeforeClass
 	public static void testSetup() throws URISyntaxException {
@@ -58,11 +51,12 @@ public class SelenifyElementLocatorsTest extends LocatorUtil {
 
 		try {
 			// Basic button element
-			automatedBrowser.waitForVisible(CSS_BUTTON);
-			automatedBrowser.waitForVisible(XPATH_BUTTON);
-			automatedBrowser.waitForVisible(NAME_BUTTON);
-			automatedBrowser.waitForVisible(CLASS_BUTTON);
-		} catch (SelenifyWebElementException e) {
+			automatedBrowser.waitForVisible(byCss("#button_element"));
+			automatedBrowser.waitForVisible(byXpath("//button[@id='button_element']"));
+			automatedBrowser.waitForVisible(byXpath("//%s[@id='%s']", "button", "button_element"));
+			automatedBrowser.waitForVisible(byName("button_element"));
+			automatedBrowser.waitForVisible(byClass("button_element"));
+		} catch (SelenifyWebElementException | SelenifyLocatorException e) {
 			fail("Method should not throw SelenifyWebElementException!");
 		} finally {
 			automatedBrowser.destroy();
