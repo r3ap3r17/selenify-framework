@@ -2,6 +2,7 @@ package selenify.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import selenify.utils.locators.impl.Locator;
 
 import java.util.List;
 
@@ -16,14 +17,24 @@ public interface SelenifyBrowser {
 	void destroy();
 
 	void goTo(String url);
+
 	String getCurrentUrl();
 
-	WebElement findElementById(String id);
-	List<WebElement> findElementsByCss(String cssSelector);
-	void waitForVisibleById(String id);
-	void waitForPresentById(String id);
-	void clickElementById(String id);
-	void typeToElementById(String id, String text);
-	String getTextFromElementById(String id);
-	void selectOptionByText(String selectId, String optionText);
+	WebElement findElement(Locator locator);
+
+	List<WebElement> findElements(Locator locator);
+
+	void waitForVisible(Locator locator);
+	void waitForVisible(Locator locator, int waitTime);
+
+	void waitForPresent(Locator locator);
+	void waitForPresent(Locator locator, int waitTime);
+
+	void clickElement(Locator locator);
+
+	void typeToElement(Locator locator, String text);
+
+	String getTextFromElement(Locator locator);
+
+	void selectOptionByText(Locator locator, String optionText);
 }

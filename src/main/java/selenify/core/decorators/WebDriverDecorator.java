@@ -1,20 +1,23 @@
 package selenify.core.decorators;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import selenify.common.constants.Timeouts;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserBase;
+import selenify.utils.locators.impl.Locator;
+import selenify.utils.locators.impl.LocatorUtil;
 
 import java.time.Duration;
 import java.util.List;
 
 public class WebDriverDecorator extends SelenifyBrowserBase {
-	private static final int DEFAULT_TIMEOUT = 5;
+	private static final Duration DEFAULT_TIMEOUT = Timeouts.MEDIUM;
 	private WebDriver webDriver;
+	private static final LocatorUtil LOCATOR_UTIL = new LocatorUtil();
+
 
 	public WebDriverDecorator() {}
 
@@ -50,44 +53,68 @@ public class WebDriverDecorator extends SelenifyBrowserBase {
 	}
 
 	@Override
-	public WebElement findElementById(String id) {
-		return getWebDriver().findElement(By.id(id));
+	public WebElement findElement(Locator locator) {
+		return getWebDriver().findElement(locator.getBy());
 	}
 
 	@Override
-	public List<WebElement> findElementsByCss(String cssSelector) {
-		return getWebDriver().findElements(By.cssSelector(cssSelector));
+	public List<WebElement> findElements(Locator locator) {
+		return getWebDriver().findElements(locator.getBy());
 	}
 
 	@Override
-	public void waitForVisibleById(String id) {
-		final WebDriverWait wait = new WebDriverWait(getWebDriver(), Duration.ofSeconds(DEFAULT_TIMEOUT));
-		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id(id))));
+	public void waitForVisible(Locator locator) {
+		LOCATOR_UTIL.getElement(
+				getWebDriver(),
+				locator.getBy(),
+				DEFAULT_TIMEOUT,
+				ExpectedConditions::visibilityOfElementLocated);
 	}
 
 	@Override
-	public void waitForPresentById(String id) {
-		final WebDriverWait wait = new WebDriverWait(getWebDriver(), Duration.ofSeconds(DEFAULT_TIMEOUT));
-		wait.until(ExpectedConditions.presenceOfElementLocated((By.id(id))));
+	public void waitForVisible(Locator locator, int waitTime) {
+		LOCATOR_UTIL.getElement(
+				getWebDriver(),
+				locator.getBy(),
+				Duration.ofMillis(waitTime),
+				ExpectedConditions::visibilityOfElementLocated);
 	}
 
 	@Override
-	public void clickElementById(String id) {
-		getWebDriver().findElement(By.id(id)).click();
+	public void waitForPresent(Locator locator) {
+		LOCATOR_UTIL.getElement(
+				getWebDriver(),
+				locator.getBy(),
+				DEFAULT_TIMEOUT,
+				ExpectedConditions::presenceOfElementLocated);
 	}
 
 	@Override
-	public void typeToElementById(String id, String text) {
-		getWebDriver().findElement(By.id(id)).sendKeys(text);
+	public void waitForPresent(Locator locator, int waitTime) {
+		LOCATOR_UTIL.getElement(
+				getWebDriver(),
+				locator.getBy(),
+				Duration.ofMillis(waitTime),
+				ExpectedConditions::presenceOfElementLocated);
 	}
 
 	@Override
-	public String getTextFromElementById(String id) {
-		return getWebDriver().findElement(By.id(id)).getText();
+	public void clickElement(Locator locator) {
+		getWebDriver().findElement(locator.getBy()).click();
 	}
 
 	@Override
-	public void selectOptionByText(String selectId, String optionText) {
-		new Select(getWebDriver().findElement(By.id(selectId))).selectByVisibleText(optionText);
+	public void typeToElement(Locator locator, String text) {
+		getWebDriver().findElement(locator.getBy()).sendKeys(text);
+	}
+
+	@Override
+	public String getTextFromElement(Locator locator) {
+		return getWebDriver().findElement(locator.getBy()).getText();
+	}
+
+	@Override
+	public void selectOptionByText(Locator locator, String optionText) {
+		new Select(getWebDriver().findElement(locator.getBy())).selectByVisibleText(optionText);
 	}
 }

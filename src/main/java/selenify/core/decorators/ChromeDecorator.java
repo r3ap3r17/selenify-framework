@@ -18,11 +18,10 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", path);
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments(
-				"--no-sandbox",
-				"--disable-gpu",
-				"--disable-dev-shm-usage"
-		);
+		options.addArguments("--headless");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
 		final WebDriver webDriver = new ChromeDriver(options);
 		getSelenifyBrowser().setWebDriver(webDriver);
 	}

@@ -2,6 +2,7 @@ package selenify.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import selenify.utils.locators.impl.Locator;
 
 import java.util.List;
 
@@ -49,42 +50,52 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
-	public WebElement findElementById(String id) {
-		return getSelenifyBrowser().findElementById(id);
+	public WebElement findElement(Locator locator) {
+		return getSelenifyBrowser().findElement(locator);
 	}
 
 	@Override
-	public List<WebElement> findElementsByCss(String cssSelector) {
-		return getSelenifyBrowser().findElementsByCss(cssSelector);
+	public List<WebElement> findElements(Locator locator) {
+		return getSelenifyBrowser().findElements(locator);
 	}
 
 	@Override
-	public void waitForVisibleById(String id) {
-		getSelenifyBrowser().waitForVisibleById(id);
+	public void waitForVisible(Locator locator) {
+		getSelenifyBrowser().waitForVisible(locator);
 	}
 
 	@Override
-	public void waitForPresentById(String id) {
-		getSelenifyBrowser().waitForPresentById(id);
+	public void waitForVisible(Locator locator, int waitTime) {
+		getSelenifyBrowser().waitForVisible(locator, waitTime);
 	}
 
 	@Override
-	public void clickElementById(String id) {
-		getSelenifyBrowser().clickElementById(id);
+	public void waitForPresent(Locator locator) {
+		getSelenifyBrowser().waitForPresent(locator);
 	}
 
 	@Override
-	public void typeToElementById(String id, String text) {
-		getSelenifyBrowser().typeToElementById(id, text);
+	public void waitForPresent(Locator locator, int waitTime) {
+		getSelenifyBrowser().waitForVisible(locator, waitTime);
 	}
 
 	@Override
-	public String getTextFromElementById(String id) {
-		return getSelenifyBrowser().getTextFromElementById(id);
+	public void clickElement(Locator locator) {
+		getSelenifyBrowser().clickElement(locator);
 	}
 
 	@Override
-	public void selectOptionByText(String selectId, String optionText) {
-		getSelenifyBrowser().selectOptionByText(selectId, optionText);
+	public void typeToElement(Locator locator, String text) {
+		getSelenifyBrowser().typeToElement(locator, text);
+	}
+
+	@Override
+	public String getTextFromElement(Locator locator) {
+		return getSelenifyBrowser().getTextFromElement(locator);
+	}
+
+	@Override
+	public void selectOptionByText(Locator locator, String optionText) {
+		getSelenifyBrowser().selectOptionByText(locator, optionText);
 	}
 }

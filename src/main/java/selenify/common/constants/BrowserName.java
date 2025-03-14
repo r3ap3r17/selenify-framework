@@ -1,4 +1,4 @@
-package selenify.constants;
+package selenify.common.constants;
 
 public enum BrowserName {
 	CHROME("Chrome"), FIREFOX("Firefox");

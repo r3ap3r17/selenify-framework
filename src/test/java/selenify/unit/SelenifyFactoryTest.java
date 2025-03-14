@@ -1,6 +1,6 @@
 package selenify.unit;
 
-import selenify.constants.BrowserName;
+import selenify.common.constants.BrowserName;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -34,7 +34,6 @@ public class SelenifyFactoryTest {
 
 	@Test
 	public void createDriverAndOpenUrl() {
-		// TODO: Create workflow to run tests each push
 		final SelenifyBrowser automatedBrowser;
 		automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 		try {
