@@ -31,7 +31,8 @@
 <p class="p_element" id="p_element">Locators</p>
 <!--Test form elements and interactions-->
 <form id="form_element" onsubmit="interactionMessage('Form Submitted'); return false">
-    <button class="button_element" id="button_element" name="button_element" onclick="interactionMessage('Button Clicked')"
+    <button class="button_element" id="button_element" name="button_element"
+            onclick="interactionMessage('Button Clicked')"
             type="button">Form
         Button
     </button>
@@ -50,22 +51,28 @@
             <option id="option3.3_element">Option 3.3</option>
         </optgroup>
     </select>
-    <textarea cols="50" id="textarea_element" name="textarea" name="textarea_element" oninput="interactionMessage('Text Area Changed')"
+    <textarea cols="50" id="textarea_element" name="textarea" name="textarea_element"
+              oninput="interactionMessage('Text Area Changed')"
               rows="10"></textarea>
-    <div><input class="selenify-radio-btn" id="radio1_element" name="radio_group" name="color" onchange="interactionMessage('Radio Button 1 Changed')" type="radio"
+    <div><input class="selenify-radio-btn" id="radio1_element" name="radio_group" name="color"
+                onchange="interactionMessage('Radio Button 1 Changed')" type="radio"
                 value="blue"> Blue
     </div>
-    <div><input class="selenify-radio-btn" id="radio2_element" name="radio_group" name="color" onchange="interactionMessage('Radio Button 2 Changed')"
+    <div><input class="selenify-radio-btn" id="radio2_element" name="radio_group" name="color"
+                onchange="interactionMessage('Radio Button 2 Changed')"
                 type="radio"
                 value="green"> Green
     </div>
-    <div><input class="selenify-radio-btn" id="radio3_element" name="radio_group" name="color" onchange="interactionMessage('Radio Button 3 Changed')" type="radio"
+    <div><input class="selenify-radio-btn" id="radio3_element" name="radio_group" name="color"
+                onchange="interactionMessage('Radio Button 3 Changed')" type="radio"
                 value="red"> Red
     </div>
-    <div><input id="checkbox1_element" name="checkbox1_element" name="vehicle" onchange="interactionMessage('Checkbox Changed')" type="checkbox"
+    <div><input id="checkbox1_element" name="checkbox1_element" name="vehicle"
+                onchange="interactionMessage('Checkbox Changed')" type="checkbox"
                 value="Bike"> I have a bike
     </div>
-    <div><input checked id="checkbox2_element" name="vehicle" name="checkbox2_element" onchange="interactionMessage('Checkbox Changed')" type="checkbox"
+    <div><input checked id="checkbox2_element" name="vehicle" name="checkbox2_element"
+                onchange="interactionMessage('Checkbox Changed')" type="checkbox"
                 value="Car"> I have a car
     </div>
     <input id="submit_element" type="submit">

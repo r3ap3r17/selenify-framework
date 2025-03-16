@@ -5,7 +5,7 @@ public class SelenifyLocatorException extends RuntimeException {
 
 	public SelenifyLocatorException(final String message) {super(message);}
 
-	public SelenifyLocatorException(final String message, final Throwable ex) {super(message, ex);}
-
 	public SelenifyLocatorException(final Exception ex) {super(ex);}
+
+	public SelenifyLocatorException(final String message, final Throwable ex) {super(message, ex);}
 }
