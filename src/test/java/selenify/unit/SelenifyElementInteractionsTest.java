@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
+import selenify.common.exceptions.SelenifyLocatorException;
+import selenify.common.exceptions.SelenifyWebElementException;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserFactory;
 import selenify.utils.locators.impl.Locator;
@@ -16,6 +18,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 @RunWith(Parameterized.class)
 public class SelenifyElementInteractionsTest extends LocatorUtil {
@@ -23,19 +26,22 @@ public class SelenifyElementInteractionsTest extends LocatorUtil {
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
 
+	@Parameterized.Parameters(name = "Browser: {0}")
+	public static Iterable<Object[]> data() {
+		return Arrays.asList(new Object[][]{
+				{BrowserName.CHROME},
+				{BrowserName.FIREFOX},
+				{BrowserName.CHROME_HEADLESS},
+				{BrowserName.FIREFOX_HEADLESS}
+		});
+	}
+
 	@BeforeClass
 	public static void testSetup() throws URISyntaxException {
 		HTML_PAGE = Objects.requireNonNull(SelenifyElementInteractionsTest.class.
 				getResource("/test-page.html")).toURI().toString();
 	}
 
-	@Parameterized.Parameters
-	public static Iterable data() {
-		return Arrays.asList(
-				BrowserName.FIREFOX_HEADLESS,
-				BrowserName.FIREFOX_HEADLESS
-		);
-	}
 	// Element id's
 	public final Locator ID_MESSAGE = byId("message");
 	public final Locator ID_BUTTON = byId("button_element");
@@ -122,6 +128,27 @@ public class SelenifyElementInteractionsTest extends LocatorUtil {
 //			automatedBrowser.waitForVisible(ID_DIV_4);
 //			automatedBrowser.clickElement(ID_DIV_4);
 //			assertEquals("Div 2 Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+		} finally {
+			automatedBrowser.destroy();
+		}
+	}
+
+	@Test
+	public void testElementLocatorStrategies() {
+		final SelenifyBrowser automatedBrowser =
+				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+		automatedBrowser.init();
+		automatedBrowser.goTo(HTML_PAGE);
+
+		try {
+			// Basic button element
+			automatedBrowser.waitForVisible(byCss("#button_element"));
+			automatedBrowser.waitForVisible(byXpath("//button[@id='button_element']"));
+			automatedBrowser.waitForVisible(byXpath("//%s[@id='%s']", "button", "button_element"));
+			automatedBrowser.waitForVisible(byName("button_element"));
+			automatedBrowser.waitForVisible(byClass("button_element"));
+		} catch (SelenifyWebElementException | SelenifyLocatorException e) {
+			fail("Method should not throw SelenifyWebElementException!");
 		} finally {
 			automatedBrowser.destroy();
 		}

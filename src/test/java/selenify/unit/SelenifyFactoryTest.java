@@ -17,16 +17,17 @@ public class SelenifyFactoryTest {
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
 
-	@Parameterized.Parameters
-	public static Iterable data() {
-		return Arrays.asList(
-				BrowserName.CHROME,
-				BrowserName.FIREFOX,
-				BrowserName.CHROME_HEADLESS,
-				BrowserName.FIREFOX_HEADLESS
-		);
+	@Parameterized.Parameters(name = "Browser: {0}")
+	public static Iterable<Object[]> data() {
+		return Arrays.asList(new Object[][]{
+				{BrowserName.CHROME},
+				{BrowserName.FIREFOX},
+				{BrowserName.CHROME_HEADLESS},
+				{BrowserName.FIREFOX_HEADLESS}
+		});
 	}
-	private BrowserName browser;
+
+	private final BrowserName browser;
 
 	public SelenifyFactoryTest(BrowserName browser) {
 		this.browser = browser;
@@ -34,8 +35,7 @@ public class SelenifyFactoryTest {
 
 	@Test
 	public void createDriverAndOpenUrl() {
-		final SelenifyBrowser automatedBrowser;
-		automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+		final SelenifyBrowser automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 		try {
 			automatedBrowser.init();
 			automatedBrowser.goTo(URL);
