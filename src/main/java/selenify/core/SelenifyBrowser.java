@@ -23,6 +23,12 @@ public interface SelenifyBrowser {
 
 	String getCurrentUrl();
 
+	void captureHarFile();
+
+	void captureCompleteHarFile();
+
+	void saveHarFile(String file);
+
 	WebElement findElement(Locator locator);
 
 	List<WebElement> findElements(Locator locator);
