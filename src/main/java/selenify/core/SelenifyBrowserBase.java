@@ -74,6 +74,11 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
+	public void saveHarFile(String fileDir, String file) {
+		getSelenifyBrowser().saveHarFile(fileDir, file);
+	}
+
+	@Override
 	public WebElement findElement(Locator locator) {
 		return getSelenifyBrowser().findElement(locator);
 	}

@@ -15,10 +15,12 @@ import java.util.EnumSet;
 
 public class BrowserMobDecorator extends SelenifyBrowserBase {
 	private static final int PROXY_PORT = 8888;
+	private static final String HAR_FILE_DIR = "target/har/";
 	private BrowserMobProxy proxy;
 
 	public BrowserMobDecorator(final SelenifyBrowserBase automatedBrowser) {
 		super(automatedBrowser);
+		new File(HAR_FILE_DIR).mkdirs();
 	}
 
 	@Override
@@ -67,11 +69,16 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 	}
 
 	@Override
-	public void saveHarFile(final String file) {
+	public void saveHarFile(String fileDir, final String file) {
 		try {
-			proxy.getHar().writeTo(new File(file));
+			proxy.getHar().writeTo(new File(fileDir, file));
 		} catch (final IOException ex) {
 			throw new SelenifyFileSaveException("Could not save a file!", ex);
 		}
+	}
+
+	@Override
+	public void saveHarFile(final String file) {
+		saveHarFile(HAR_FILE_DIR, file);
 	}
 }

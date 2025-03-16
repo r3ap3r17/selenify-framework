@@ -28,6 +28,7 @@ public interface SelenifyBrowser {
 	void captureCompleteHarFile();
 
 	void saveHarFile(String file);
+	void saveHarFile(String fileDir, String file);
 
 	WebElement findElement(Locator locator);
 
