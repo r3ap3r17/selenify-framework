@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 @RunWith(Parameterized.class)
 public class SelenifyBrowserMobProxyTest {
-	private static final String URL = "https://octopus.com/";
+	private static final String URL = "https://example.com/";
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
 
