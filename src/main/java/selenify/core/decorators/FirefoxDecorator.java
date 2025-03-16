@@ -1,7 +1,6 @@
 package selenify.core.decorators;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import selenify.core.SelenifyBrowser;
@@ -12,13 +11,13 @@ public class FirefoxDecorator extends SelenifyBrowserBase {
 	private final boolean headless;
 
 
-	public FirefoxDecorator(final SelenifyBrowser automatedBrowser, String path) {
+	public FirefoxDecorator(String path, final SelenifyBrowser automatedBrowser) {
 		super(automatedBrowser);
 		this.path = path;
 		this.headless = false;
 	}
 
-	public FirefoxDecorator(final boolean headless, final SelenifyBrowser automatedBrowser, String path) {
+	public FirefoxDecorator(boolean headless, String path, final SelenifyBrowser automatedBrowser) {
 		super(automatedBrowser);
 		this.path = path;
 		this.headless = headless;

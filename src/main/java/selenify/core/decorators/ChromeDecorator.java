@@ -10,16 +10,16 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 	private static String path;
 	private final boolean headless;
 
-	public ChromeDecorator(final SelenifyBrowser automatedBrowser, String path) {
+	public ChromeDecorator(String path, final SelenifyBrowser automatedBrowser) {
 		super(automatedBrowser);
 		this.path = path;
 		this.headless = false;
 	}
 
-	public ChromeDecorator(boolean headless, final SelenifyBrowser automatedBrowser, String path) {
+	public ChromeDecorator(boolean headless, String path, final SelenifyBrowser automatedBrowser) {
 		super(automatedBrowser);
-		this.path = path;
 		this.headless = headless;
+		this.path = path;
 	}
 
 	@Override

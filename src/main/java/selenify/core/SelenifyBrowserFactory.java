@@ -1,12 +1,12 @@
 package selenify.core;
 
 import selenify.common.constants.BrowserName;
+import selenify.core.decorators.BrowserMobDecorator;
 import selenify.core.decorators.ChromeDecorator;
 import selenify.core.decorators.FirefoxDecorator;
 import selenify.core.decorators.WebDriverDecorator;
 
 public class SelenifyBrowserFactory {
-	private static String PROPERTY_BASE = "driver.%s.path";
 	private static String _path;
 
 	public static String getPath() {
@@ -18,6 +18,7 @@ public class SelenifyBrowserFactory {
 	}
 
 	public SelenifyBrowser getAutomatedBrowser(final BrowserName browser) {
+		String PROPERTY_BASE = "driver.%s.path";
 		switch (browser) {
 			case CHROME -> {
 				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
@@ -39,14 +40,13 @@ public class SelenifyBrowserFactory {
 		}
 	}
 
-
 	private SelenifyBrowser getChromeBrowser(final boolean headless) {
-		return new ChromeDecorator(headless,
-				new WebDriverDecorator(), getPath());
+		return new ChromeDecorator(headless, getPath(),
+				new BrowserMobDecorator(new WebDriverDecorator()));
 	}
 
 	private SelenifyBrowser getFirefoxBrowser(final boolean headless) {
-		return new FirefoxDecorator(headless,
-				new WebDriverDecorator(), getPath());
+		return new FirefoxDecorator(headless, getPath(),
+				new BrowserMobDecorator(new WebDriverDecorator()));
 	}
 }
