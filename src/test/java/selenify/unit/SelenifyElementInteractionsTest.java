@@ -10,20 +10,32 @@ import selenify.core.SelenifyBrowserFactory;
 import selenify.utils.locators.impl.Locator;
 import selenify.utils.locators.impl.LocatorUtil;
 
-import static org.junit.Assert.assertEquals;
-
-
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(Parameterized.class)
 public class SelenifyElementInteractionsTest extends LocatorUtil {
 	private static String HTML_PAGE;
-	private BrowserName browser;
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
+
+	@BeforeClass
+	public static void testSetup() throws URISyntaxException {
+		HTML_PAGE = Objects.requireNonNull(SelenifyElementInteractionsTest.class.
+				getResource("/test-page.html")).toURI().toString();
+	}
+
+	@Parameterized.Parameters
+	public static Iterable data() {
+		return Arrays.asList(
+				BrowserName.FIREFOX_HEADLESS,
+				BrowserName.FIREFOX_HEADLESS
+		);
+	}
 	// Element id's
 	public final Locator ID_MESSAGE = byId("message");
 	public final Locator ID_BUTTON = byId("button_element");
@@ -39,23 +51,10 @@ public class SelenifyElementInteractionsTest extends LocatorUtil {
 	public final Locator ID_DIV_2 = byId("div2_element");
 	public final Locator ID_DIV_3 = byId("div3_element");
 	public final Locator ID_DIV_4 = byId("div4_element");
-
-	@BeforeClass
-	public static void testSetup() throws URISyntaxException {
-		HTML_PAGE = Objects.requireNonNull(SelenifyElementInteractionsTest.class.
-				getResource("/test-page.html")).toURI().toString();
-	}
+	private BrowserName browser;
 
 	public SelenifyElementInteractionsTest(BrowserName browser) {
 		this.browser = browser;
-	}
-
-	@Parameterized.Parameters
-	public static Iterable data() {
-		return Arrays.asList(
-				BrowserName.FIREFOX_HEADLESS,
-				BrowserName.FIREFOX_HEADLESS
-		);
 	}
 
 	@Test

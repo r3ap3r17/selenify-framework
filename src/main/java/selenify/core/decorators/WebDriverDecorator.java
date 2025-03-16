@@ -10,13 +10,12 @@ import selenify.core.SelenifyBrowserBase;
 import selenify.utils.locators.impl.Locator;
 import selenify.utils.locators.impl.LocatorUtil;
 
-import java.time.Duration;
 import java.util.List;
 
 public class WebDriverDecorator extends SelenifyBrowserBase {
 	private static final int DEFAULT_TIMEOUT = Timeouts.MEDIUM;
-	private WebDriver webDriver;
 	private static final LocatorUtil LOCATOR_UTIL = new LocatorUtil();
+	private WebDriver webDriver;
 
 
 	public WebDriverDecorator() {}

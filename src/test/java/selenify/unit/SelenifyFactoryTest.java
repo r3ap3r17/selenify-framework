@@ -1,28 +1,21 @@
 package selenify.unit;
 
-import selenify.common.constants.BrowserName;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import selenify.common.constants.BrowserName;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserFactory;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(Parameterized.class)
 public class SelenifyFactoryTest {
 	private static final String URL = "https://example.com/";
-	private BrowserName browser;
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
-
-
-	public SelenifyFactoryTest(BrowserName browser) {
-		this.browser = browser;
-	}
 
 	@Parameterized.Parameters
 	public static Iterable data() {
@@ -32,6 +25,11 @@ public class SelenifyFactoryTest {
 				BrowserName.CHROME_HEADLESS,
 				BrowserName.FIREFOX_HEADLESS
 		);
+	}
+	private BrowserName browser;
+
+	public SelenifyFactoryTest(BrowserName browser) {
+		this.browser = browser;
 	}
 
 	@Test

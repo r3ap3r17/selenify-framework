@@ -6,7 +6,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.utils.locators.impl.Locator;
 
 import java.util.List;
-import java.util.Objects;
 
 public class SelenifyBrowserBase implements SelenifyBrowser {
 	private SelenifyBrowser _selenifyBrowser;

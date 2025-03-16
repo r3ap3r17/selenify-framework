@@ -20,7 +20,6 @@ import static org.junit.Assert.fail;
 @RunWith(Parameterized.class)
 public class SelenifyElementLocatorsTest extends LocatorUtil {
 	private static String HTML_PAGE;
-	private BrowserName browser;
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
 
@@ -30,16 +29,17 @@ public class SelenifyElementLocatorsTest extends LocatorUtil {
 				getResource("/test-page.html")).toURI().toString();
 	}
 
-	public SelenifyElementLocatorsTest(BrowserName browser) {
-		this.browser = browser;
-	}
-
 	@Parameterized.Parameters
 	public static Iterable data() {
 		return Arrays.asList(
 				BrowserName.FIREFOX_HEADLESS,
 				BrowserName.FIREFOX_HEADLESS
 		);
+	}
+	private BrowserName browser;
+
+	public SelenifyElementLocatorsTest(BrowserName browser) {
+		this.browser = browser;
 	}
 
 	@Test

@@ -1,7 +1,5 @@
 package selenify.common.constants;
 
-import java.time.Duration;
-
 public class Timeouts {
 	public static final int SMALL = 1000;
 	public static final int MEDIUM = 5000;

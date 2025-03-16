@@ -28,9 +28,11 @@ public interface SelenifyBrowser {
 	List<WebElement> findElements(Locator locator);
 
 	void waitForVisible(Locator locator);
+
 	void waitForVisible(Locator locator, int waitTime);
 
 	void waitForPresent(Locator locator);
+
 	void waitForPresent(Locator locator, int waitTime);
 
 	void clickElement(Locator locator);
