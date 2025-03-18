@@ -1,5 +1,9 @@
 package selenify.core.decorators;
 
+import com.google.common.net.HttpHeaders;
+import io.netty.handler.codec.http.DefaultHttpResponse;
+import io.netty.handler.codec.http.HttpResponse;
+import io.netty.handler.codec.http.HttpResponseStatus;
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.proxy.CaptureType;
@@ -12,6 +16,7 @@ import selenify.core.SelenifyBrowserBase;
 import java.io.File;
 import java.io.IOException;
 import java.util.EnumSet;
+import java.util.regex.Pattern;
 
 public class BrowserMobDecorator extends SelenifyBrowserBase {
 	private static final int PROXY_PORT = 8888;
@@ -39,6 +44,7 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 		final DesiredCapabilities desiredCapabilities =
 				getSelenifyBrowser().getDesiredCapabilities();
 		desiredCapabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
+		desiredCapabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
 		return desiredCapabilities;
 	}
@@ -80,5 +86,22 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 	@Override
 	public void saveHarFile(final String file) {
 		saveHarFile(HAR_FILE_DIR, file);
+	}
+
+	@Override
+	public void blockRequestTo(String urlRegex, int responseCode) {
+		proxy.addRequestFilter((request, contents, messageInfo) -> {
+			if (Pattern.compile(urlRegex).matcher(messageInfo.getOriginalUrl()).matches()) {
+				System.out.println(request.getUri());
+				final HttpResponse response = new DefaultHttpResponse(
+						request.getProtocolVersion(),
+						HttpResponseStatus.valueOf(responseCode));
+				response.headers().add(HttpHeaders.CONNECTION, "Close");
+				return response;
+			}
+			return null;
+		});
+
+//		getSelenifyBrowser().blockRequestTo(urlRegex, responseCode); // Uncomment if ever needed
 	}
 }

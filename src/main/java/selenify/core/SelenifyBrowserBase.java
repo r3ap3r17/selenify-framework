@@ -79,6 +79,13 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
+	public void blockRequestTo(final String urlRegex, final int responseCode) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().blockRequestTo(urlRegex, responseCode);
+		}
+	}
+
+	@Override
 	public WebElement findElement(Locator locator) {
 		return getSelenifyBrowser().findElement(locator);
 	}

@@ -64,4 +64,17 @@ public class SelenifyBrowserMobProxyTest {
 			}
 		}
 	}
+
+	@Test
+	public void modifyRequests() {
+		SelenifyBrowser automatedBrowser =
+				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+		try {
+			automatedBrowser.init();
+			automatedBrowser.blockRequestTo(".*?\\.png", 201);
+			automatedBrowser.goTo("https://google.com/");
+		} finally {
+			automatedBrowser.destroy();
+		}
+	}
 }
