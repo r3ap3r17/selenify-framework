@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       selenium:
-        image: selenium/standalone-chrome:latest
+        image: selenium/standalone-chrome:134.0
         options: >-
           --health-cmd="curl --silent --fail localhost:4444/wd/hub/status || exit 1"
           --health-interval=30s
@@ -42,12 +42,12 @@ jobs:
             sleep 5
           done
 
-      - name: Install Matching ChromeDriver
+      - name: Run Selenium Tests in Docker
         run: |
-          wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.90/linux64/chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-          rm chromedriver-linux64.zip
-
-      - name: Run Selenium Tests
-        run: mvn clean test -Dselenium.grid.url=http://localhost:4444/wd/hub -Ddriver.chrome.path=/usr/local/bin/chromedriver
+          docker run --rm \
+            --network host \
+            -v $(pwd):/app \
+            -w /app \
+            maven:3.8.4-openjdk-20-slim \
+            mvn test -Dselenium.grid.url=http://localhost:4444/wd/hub \
+            -Ddriver.chrome.path=/usr/bin/chromedriver
