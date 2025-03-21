@@ -36,7 +36,6 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 		options.addArguments("--disable-background-networking");
 		options.addArguments("--no-sandbox");
 
-
 		DesiredCapabilities capabilities = getDesiredCapabilities();
 		capabilities.getCapabilityNames().forEach(capability ->
 				options.setCapability(capability, capabilities.getCapability(capability)));

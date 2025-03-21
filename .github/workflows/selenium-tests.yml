@@ -6,6 +6,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        options: >-
+          --health-cmd="curl --silent --fail localhost:4444/wd/hub/status || exit 1"
+          --health-interval=30s
+          --health-timeout=10s
+          --health-retries=3
+        ports:
+          - 4444:4444
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,18 +35,12 @@ jobs:
           restore-keys: |
             maven-${{ runner.os }}-
 
-      - name: Kill any running Chrome processes
-        run: pkill -f chrome || true
-
-      - name: Install Chrome and ChromeDriver
+      - name: Wait for Selenium container to be ready
         run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.35/linux64/chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-          rm chromedriver-linux64.zip
+          until curl --silent --fail localhost:4444/wd/hub/status; do
+            echo "Waiting for Selenium container to be ready..."
+            sleep 5
+          done
 
       - name: Run Selenium Tests
-        run: mvn clean test -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver
+        run: mvn clean test -Dselenium.grid.url=http://localhost:4444/wd/hub -Ddriver.chrome.path=/usr/local/bin/chromedriver
