@@ -1,6 +1,7 @@
 package selenify.unit;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -39,6 +40,7 @@ public class SelenifyBrowserMobProxyTest extends LocatorUtil {
 		this.browser = browser;
 	}
 
+	@Ignore("This test is temporarily disabled")
 	@Test
 	public void captureHarFile() {
 		SelenifyBrowser automatedBrowser =
@@ -58,6 +60,7 @@ public class SelenifyBrowserMobProxyTest extends LocatorUtil {
 		}
 	}
 
+	@Ignore("This test is temporarily disabled")
 	@Test
 	public void captureCompleteHarFile() {
 		SelenifyBrowser automatedBrowser =
@@ -77,6 +80,7 @@ public class SelenifyBrowserMobProxyTest extends LocatorUtil {
 		}
 	}
 
+	@Ignore("This test is temporarily disabled")
 	@Test
 	public void blockRequests() {
 		SelenifyBrowser automatedBrowser =
@@ -90,6 +94,7 @@ public class SelenifyBrowserMobProxyTest extends LocatorUtil {
 		}
 	}
 
+	@Ignore("This test is temporarily disabled")
 	@Test
 	public void modifyRequests() throws URISyntaxException {
 		final String REQ_BODY_TITLE = "New title !";

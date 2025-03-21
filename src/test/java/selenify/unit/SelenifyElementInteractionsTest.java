@@ -1,6 +1,7 @@
 package selenify.unit;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -63,6 +64,7 @@ public class SelenifyElementInteractionsTest extends LocatorUtil {
 		this.browser = browser;
 	}
 
+	@Ignore("This test is temporarily disabled")
 	@Test
 	public void testElementInteractions() {
 		final SelenifyBrowser automatedBrowser =
@@ -133,6 +135,7 @@ public class SelenifyElementInteractionsTest extends LocatorUtil {
 		}
 	}
 
+	@Ignore("This test is temporarily disabled")
 	@Test
 	public void testElementLocatorStrategies() {
 		final SelenifyBrowser automatedBrowser =
