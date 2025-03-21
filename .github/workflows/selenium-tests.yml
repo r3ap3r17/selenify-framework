@@ -48,6 +48,6 @@ jobs:
             --network host \
             -v $(pwd):/app \
             -w /app \
-            maven:3.8.4-openjdk-20-slim \
+            selenium/standalone-chrome:134.0 \
             mvn test -Dselenium.grid.url=http://localhost:4444/wd/hub \
             -Ddriver.chrome.path=/usr/bin/chromedriver
