@@ -1,10 +1,14 @@
 package selenify.core;
 
+import net.lightbody.bmp.core.har.Har;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import selenify.core.decorators.modifiers.ProxyRequestModifier;
+import selenify.core.decorators.modifiers.ProxyResponseModifier;
 import selenify.utils.locators.impl.Locator;
 
+import java.io.File;
 import java.util.List;
 
 public class SelenifyBrowserBase implements SelenifyBrowser {
@@ -59,6 +63,11 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
+	public Har getHar() {
+		return getSelenifyBrowser().getHar();
+	}
+
+	@Override
 	public void captureHarFile() {
 		getSelenifyBrowser().captureHarFile();
 	}
@@ -69,13 +78,41 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
-	public void saveHarFile(String file) {
-		getSelenifyBrowser().saveHarFile(file);
+	public File saveHarFile(String file) {
+		return getSelenifyBrowser().saveHarFile(file);
 	}
 
 	@Override
-	public void saveHarFile(String fileDir, String file) {
-		getSelenifyBrowser().saveHarFile(fileDir, file);
+	public File saveHarFile(String fileDir, String file) {
+		return getSelenifyBrowser().saveHarFile(fileDir, file);
+	}
+
+	@Override
+	public void modifyRequest(ProxyRequestModifier modifier) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyRequest(modifier);
+		}
+	}
+
+	@Override
+	public void modifyRequest(String urlRegex, String responseBody) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyRequest(urlRegex, responseBody);
+		}
+	}
+
+	@Override
+	public void modifyResponse(ProxyResponseModifier modifier) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyResponse(modifier);
+		}
+	}
+
+	@Override
+	public void modifyResponse(String urlRegex, int responseCode, String responseBody) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyResponse(urlRegex, responseCode, responseBody);
+		}
 	}
 
 	@Override

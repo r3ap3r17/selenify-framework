@@ -6,12 +6,15 @@ import io.netty.handler.codec.http.HttpResponse;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.BrowserMobProxyServer;
+import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.CaptureType;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.common.exceptions.SelenifyFileSaveException;
 import selenify.core.SelenifyBrowserBase;
+import selenify.core.decorators.modifiers.ProxyRequestModifier;
+import selenify.core.decorators.modifiers.ProxyResponseModifier;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,12 +32,22 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 	}
 
 	@Override
+	public Har getHar() {
+		Har har = null;
+		if (proxy != null) {
+			har = proxy.getHar();
+		}
+		return har;
+	}
+
+	@Override
 	public DesiredCapabilities getDesiredCapabilities() {
 		proxy = new BrowserMobProxyServer();
 		proxy.start(PROXY_PORT);
+		proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT,
+				CaptureType.REQUEST_HEADERS, CaptureType.RESPONSE_HEADERS);
 
 		final String proxyUrl = "localhost:" + PROXY_PORT;
-
 		final Proxy seleniumProxy = new Proxy();
 		seleniumProxy.setHttpProxy(proxyUrl);
 		seleniumProxy.setSslProxy(proxyUrl);
@@ -75,24 +88,57 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 	}
 
 	@Override
-	public void saveHarFile(String fileDir, final String file) {
+	public File saveHarFile(String fileDir, final String file) {
 		try {
-			proxy.getHar().writeTo(new File(fileDir, file));
+			File harFIle = new File(fileDir, file);
+			getHar().writeTo(harFIle);
+			return harFIle;
 		} catch (final IOException ex) {
 			throw new SelenifyFileSaveException("Could not save a file!", ex);
 		}
 	}
 
 	@Override
-	public void saveHarFile(final String file) {
-		saveHarFile(HAR_FILE_DIR, file);
+	public File saveHarFile(final String file) {
+		return saveHarFile(HAR_FILE_DIR, file);
+	}
+
+	@Override
+	public void modifyRequest(ProxyRequestModifier modifier) {
+		proxy.addRequestFilter(modifier::modify);
+//		getSelenifyBrowser().modifyRequest(modifier);
+	}
+
+	@Override
+	public void modifyRequest(final String urlRegex, final String responseBody) {
+		modifyRequest((response, contents, messageInfo) -> {
+			if (matchUrlRegex(urlRegex, messageInfo.getOriginalUrl())) {
+				contents.setTextContents(responseBody);
+			}
+			return null;
+		});
+	}
+
+	@Override
+	public void modifyResponse(ProxyResponseModifier modifier) {
+		proxy.addResponseFilter(modifier::modify);
+//		getSelenifyBrowser().modifyResponse(modifier);
+	}
+
+	@Override
+	public void modifyResponse(final String urlRegex, final int responseCode, final String responseBody) {
+		modifyResponse((response, contents, messageInfo) -> {
+			if (matchUrlRegex(urlRegex, messageInfo.getOriginalUrl())) {
+				contents.setTextContents(responseBody);
+				response.setStatus(HttpResponseStatus.OK);
+			}
+		});
 	}
 
 	@Override
 	public void blockRequestTo(String urlRegex, int responseCode) {
-		proxy.addRequestFilter((request, contents, messageInfo) -> {
-			if (Pattern.compile(urlRegex).matcher(messageInfo.getOriginalUrl()).matches()) {
-				System.out.println(request.getUri());
+		modifyRequest((request, contents, messageInfo) -> {
+			if (matchUrlRegex(urlRegex, messageInfo.getOriginalUrl())) {
 				final HttpResponse response = new DefaultHttpResponse(
 						request.getProtocolVersion(),
 						HttpResponseStatus.valueOf(responseCode));
@@ -101,7 +147,9 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 			}
 			return null;
 		});
+	}
 
-//		getSelenifyBrowser().blockRequestTo(urlRegex, responseCode); // Uncomment if ever needed
+	private boolean matchUrlRegex(String urlRegex, String url) {
+		return Pattern.compile(urlRegex).matcher(url).matches();
 	}
 }
