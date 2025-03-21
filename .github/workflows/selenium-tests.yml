@@ -42,5 +42,14 @@ jobs:
             sleep 5
           done
 
+      - name: Install ChromeDriver
+        run: |
+          # Install ChromeDriver manually
+          CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          rm chromedriver_linux64.zip
+
       - name: Run Selenium Tests
         run: mvn clean test -Dselenium.grid.url=http://localhost:4444/wd/hub -Ddriver.chrome.path=/usr/local/bin/chromedriver
