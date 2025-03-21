@@ -34,24 +34,11 @@ jobs:
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
           rm chromedriver-linux64.zip
 
-      - name: Install Firefox and GeckoDriver
-        run: |
-          sudo apt-get install -y firefox
-          GECKODRIVER_VERSION=$(curl -sS https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r ".tag_name")
-          wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
-          tar -xvzf geckodriver-v0.36.0-linux64.tar.gz
-          chmod +x geckodriver
-          sudo mv geckodriver /usr/local/bin/
-          rm geckodriver-v0.36.0-linux64.tar.gz
-
       - name: Verify Browsers and Drivers
         run: |
           google-chrome --version || echo "Chrome not found"
           chromedriver --version || echo "ChromeDriver not found"
-          firefox --version || echo "Firefox not found"
-          geckodriver --version || echo "GeckoDriver not found"
-          ls /usr/local/bin | grep 'geckodriver'
           ls /usr/local/bin | grep 'chromedriver'
 
       - name: Run Selenium Tests
-        run: mvn test -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver
+        run: mvn clean test -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver

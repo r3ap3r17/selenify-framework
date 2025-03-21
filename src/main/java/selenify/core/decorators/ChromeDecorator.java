@@ -28,7 +28,7 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 		System.setProperty("webdriver.chrome.driver", path);
 		final ChromeOptions options = new ChromeOptions();
 		if (headless) {
-			options.addArguments("--headless");
+			options.addArguments("--headless=new"); //when on githubActions
 			options.addArguments("--disable-gpu");
 			options.addArguments("--disable-dev-shm-usage");
 		}
