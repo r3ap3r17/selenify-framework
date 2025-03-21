@@ -1,9 +1,14 @@
 package selenify.core;
 
+import net.lightbody.bmp.core.har.Har;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import selenify.core.decorators.modifiers.ProxyRequestModifier;
+import selenify.core.decorators.modifiers.ProxyResponseModifier;
 import selenify.utils.locators.impl.Locator;
 
+import java.io.File;
 import java.util.List;
 
 public class SelenifyBrowserBase implements SelenifyBrowser {
@@ -30,6 +35,14 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
+	public DesiredCapabilities getDesiredCapabilities() {
+		if (getSelenifyBrowser() != null) {
+			return getSelenifyBrowser().getDesiredCapabilities();
+		}
+		return new DesiredCapabilities();
+	}
+
+	@Override
 	public void init() {
 		getSelenifyBrowser().init();
 	}
@@ -47,6 +60,66 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	@Override
 	public String getCurrentUrl() {
 		return getSelenifyBrowser().getCurrentUrl();
+	}
+
+	@Override
+	public Har getHar() {
+		return getSelenifyBrowser().getHar();
+	}
+
+	@Override
+	public void captureHarFile() {
+		getSelenifyBrowser().captureHarFile();
+	}
+
+	@Override
+	public void captureCompleteHarFile() {
+		getSelenifyBrowser().captureCompleteHarFile();
+	}
+
+	@Override
+	public File saveHarFile(String file) {
+		return getSelenifyBrowser().saveHarFile(file);
+	}
+
+	@Override
+	public File saveHarFile(String fileDir, String file) {
+		return getSelenifyBrowser().saveHarFile(fileDir, file);
+	}
+
+	@Override
+	public void modifyRequest(ProxyRequestModifier modifier) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyRequest(modifier);
+		}
+	}
+
+	@Override
+	public void modifyRequest(String urlRegex, String responseBody) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyRequest(urlRegex, responseBody);
+		}
+	}
+
+	@Override
+	public void modifyResponse(ProxyResponseModifier modifier) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyResponse(modifier);
+		}
+	}
+
+	@Override
+	public void modifyResponse(String urlRegex, int responseCode, String responseBody) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().modifyResponse(urlRegex, responseCode, responseBody);
+		}
+	}
+
+	@Override
+	public void blockRequestTo(final String urlRegex, final int responseCode) {
+		if (getSelenifyBrowser() != null) {
+			getSelenifyBrowser().blockRequestTo(urlRegex, responseCode);
+		}
 	}
 
 	@Override

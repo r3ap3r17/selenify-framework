@@ -1,12 +1,12 @@
 package selenify.core;
 
 import selenify.common.constants.BrowserName;
+import selenify.core.decorators.BrowserMobDecorator;
 import selenify.core.decorators.ChromeDecorator;
 import selenify.core.decorators.FirefoxDecorator;
 import selenify.core.decorators.WebDriverDecorator;
 
 public class SelenifyBrowserFactory {
-	private static String PROPERTY_BASE = "driver.%s.path";
 	private static String _path;
 
 	public static String getPath() {
@@ -18,25 +18,35 @@ public class SelenifyBrowserFactory {
 	}
 
 	public SelenifyBrowser getAutomatedBrowser(final BrowserName browser) {
+		String PROPERTY_BASE = "driver.%s.path";
 		switch (browser) {
 			case CHROME -> {
 				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
-				return getChromeBrowser();
+				return getChromeBrowser(false);
+			}
+			case CHROME_HEADLESS -> {
+				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
+				return getChromeBrowser(true);
 			}
 			case FIREFOX -> {
 				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
-				return getFirefoxBrowser();
+				return getFirefoxBrowser(false);
+			}
+			case FIREFOX_HEADLESS -> {
+				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
+				return getFirefoxBrowser(true);
 			}
 			default -> throw new IllegalArgumentException("Unknown browser " + browser.name);
 		}
 	}
 
-
-	private SelenifyBrowser getChromeBrowser() {
-		return new ChromeDecorator(new WebDriverDecorator(), getPath());
+	private SelenifyBrowser getChromeBrowser(final boolean headless) {
+		return new ChromeDecorator(headless, getPath(),
+				new BrowserMobDecorator(new WebDriverDecorator()));
 	}
 
-	private SelenifyBrowser getFirefoxBrowser() {
-		return new FirefoxDecorator(new WebDriverDecorator(), getPath());
+	private SelenifyBrowser getFirefoxBrowser(final boolean headless) {
+		return new FirefoxDecorator(headless, getPath(),
+				new BrowserMobDecorator(new WebDriverDecorator()));
 	}
 }

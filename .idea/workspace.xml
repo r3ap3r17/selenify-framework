@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="test intellij testing">
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/common/constants/LocatorType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/common/constants/Timeouts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/common/exceptions/SelenifyLocatorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/common/exceptions/SelenifyWebElementException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/utils/locators/ExpectedConditionCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/utils/locators/LocatorProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/utils/locators/impl/Locator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/selenify/utils/locators/impl/LocatorUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyElementLocatorsTest.java" afterDir="false" />
+    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="added support for complete har file capture">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/constants/BrowserName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/common/constants/BrowserName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/WebDriverDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyElementInteractionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyElementInteractionsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/selenify/unit/SelenifyFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/test-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/test-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/BrowserMobDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/BrowserMobDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +22,8 @@
         <option value="package-info" />
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Exception" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -66,6 +53,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="release/v2.0.0" />
+                    <option name="lastUsedInstant" value="1741960951" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="release/v1.0.0" />
                     <option name="lastUsedInstant" value="1741201625" />
@@ -107,6 +98,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.SelenifyBrowserMobProxyTest.captureCompleteHarFile.executor": "Run",
+    "JUnit.SelenifyBrowserMobProxyTest.executor": "Run",
     "JUnit.SelenifyElementInteractionsTest.executor": "Run",
     "JUnit.SelenifyElementLocatorsTest.executor": "Run",
     "JUnit.SelenifyFactoryTest (1).executor": "Run",
@@ -123,14 +116,15 @@
     "TestNG.TestTemplate.executor": "Run",
     "TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor": "Run",
     "TestNG.driverInstance.executor": "Run",
-    "git-widget-placeholder": "release/v1.0.0",
+    "git-widget-placeholder": "release/v2.0.0",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
-    "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/src/test/resources",
+    "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/target/har/CHROME_TEST.har",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "two.files.diff.last.used.file": "/home/bveljko/IdeaProjects/personal/selenify-framework/target/har/CHROME_TEST.har"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -141,7 +135,41 @@
       <recent name="selenify.unit" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SelenifyElementLocatorsTest">
+  <component name="RunManager" selected="JUnit.SelenifyBrowserMobProxyTest">
+    <configuration name="SelenifyBrowserMobProxyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenify-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="selenify.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="selenify.unit" />
+      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyBrowserMobProxyTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/134/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/36/geckodriver" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelenifyBrowserMobProxyTest.captureCompleteHarFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenify-framework" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="selenify.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="selenify.unit" />
+      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyBrowserMobProxyTest" />
+      <option name="METHOD_NAME" value="captureCompleteHarFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/134/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/36/geckodriver" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SelenifyElementInteractionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="selenify-framework" />
       <extension name="coverage">
@@ -159,7 +187,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelenifyElementLocatorsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SelenifyFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="selenify-framework" />
       <extension name="coverage">
         <pattern>
@@ -168,7 +196,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="selenify.unit" />
-      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyElementLocatorsTest" />
+      <option name="MAIN_CLASS_NAME" value="selenify.unit.SelenifyFactoryTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-Ddriver.chrome.path=$USER_HOME$/Documents/ChromeDriver/134/chromedriver -Ddriver.firefox.path=$USER_HOME$/Documents/GeckoDriver/36/geckodriver" />
@@ -200,9 +228,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.unit in selenify-framework" />
-        <item itemvalue="JUnit.SelenifyElementLocatorsTest" />
+        <item itemvalue="JUnit.SelenifyBrowserMobProxyTest" />
+        <item itemvalue="JUnit.SelenifyFactoryTest" />
         <item itemvalue="JUnit.SelenifyElementInteractionsTest" />
-        <item itemvalue="JUnit.unit in selenify-framework" />
+        <item itemvalue="JUnit.SelenifyBrowserMobProxyTest.captureCompleteHarFile" />
       </list>
     </recent_temporary>
   </component>
@@ -326,7 +355,71 @@
       <option name="project" value="LOCAL" />
       <updated>1741461449937</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added new constants&#10;added common package&#10;added new locator logic&#10;refactored SelenifyBrowser methods&#10;added and updated tests">
+      <option name="closed" value="true" />
+      <created>1741896906520</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1741896906520</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added locator arguments">
+      <option name="closed" value="true" />
+      <created>1741962856235</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1741962856235</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added headless browser support">
+      <option name="closed" value="true" />
+      <created>1741972268573</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1741972268573</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added BrowserMob Proxy support">
+      <option name="closed" value="true" />
+      <created>1742150287698</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1742150287698</updated>
+    </task>
+    <task id="LOCAL-00019" summary="formatter">
+      <option name="closed" value="true" />
+      <created>1742150405081</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1742150405081</updated>
+    </task>
+    <task id="LOCAL-00020" summary="formatter">
+      <option name="closed" value="true" />
+      <created>1742154466393</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1742154466393</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactored tests">
+      <option name="closed" value="true" />
+      <created>1742154514941</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1742154514941</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added support for complete har file capture">
+      <option name="closed" value="true" />
+      <created>1742154641016</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1742154641016</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -353,6 +446,13 @@
     <MESSAGE value="headless mode" />
     <MESSAGE value="merge main" />
     <MESSAGE value="test intellij testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="test intellij testing" />
+    <MESSAGE value="added new constants&#10;added common package&#10;added new locator logic&#10;refactored SelenifyBrowser methods&#10;added and updated tests" />
+    <MESSAGE value="added locator arguments" />
+    <MESSAGE value="added headless browser support" />
+    <MESSAGE value="added BrowserMob Proxy support" />
+    <MESSAGE value="formatter" />
+    <MESSAGE value="refactored tests" />
+    <MESSAGE value="added support for complete har file capture" />
+    <option name="LAST_COMMIT_MESSAGE" value="added support for complete har file capture" />
   </component>
 </project>

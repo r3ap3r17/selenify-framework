@@ -7,9 +7,9 @@ public class SelenifyWebElementException extends RuntimeException {
 		super(message);
 	}
 
+	public SelenifyWebElementException(final Exception ex) {super(ex);}
+
 	public SelenifyWebElementException(final String message, final Throwable ex) {
 		super(message, ex);
 	}
-
-	public SelenifyWebElementException(final Exception ex) {super(ex);}
 }

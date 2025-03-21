@@ -28,14 +28,16 @@
 <!--Validate element interactions-->
 <div id="message"></div>
 <!--Test Locators-->
-<p id="p_element" class="p_element">Locators</p>
+<p class="p_element" id="p_element">Locators</p>
 <!--Test form elements and interactions-->
 <form id="form_element" onsubmit="interactionMessage('Form Submitted'); return false">
-    <button id="button_element" class="button_element" name="button_element" type="button" onclick="interactionMessage('Button Clicked')">Form
+    <button class="button_element" id="button_element" name="button_element"
+            onclick="interactionMessage('Button Clicked')"
+            type="button">Form
         Button
     </button>
-    <input name="text_element" id="text_element" type="text" oninput="interactionMessage('Text Input Changed')">
-    <select name="select_element" id="select_element" onchange="interactionMessage('Select Changed')">
+    <input id="text_element" name="text_element" oninput="interactionMessage('Text Input Changed')" type="text">
+    <select id="select_element" name="select_element" onchange="interactionMessage('Select Changed')">
         <optgroup label="Group 1">
             <option id="option1.1_element">Option 1.1</option>
         </optgroup>
@@ -43,39 +45,45 @@
             <option id="option2.1_element">Option 2.1</option>
             <option id="option2.2_element">Option 2.2</option>
         </optgroup>
-        <optgroup label="Group 3" disabled>
+        <optgroup disabled label="Group 3">
             <option id="option3.1_element">Option 3.1</option>
             <option id="option3.2_element">Option 3.2</option>
             <option id="option3.3_element">Option 3.3</option>
         </optgroup>
     </select>
-    <textarea name="textarea_element" id="textarea_element" name="textarea" rows="10" cols="50"
-              oninput="interactionMessage('Text Area Changed')"></textarea>
-    <div><input class="selenify-radio-btn" name="radio_group" id="radio1_element" type="radio" name="color" value="blue"
-                onchange="interactionMessage('Radio Button 1 Changed')"> Blue
+    <textarea cols="50" id="textarea_element" name="textarea" name="textarea_element"
+              oninput="interactionMessage('Text Area Changed')"
+              rows="10"></textarea>
+    <div><input class="selenify-radio-btn" id="radio1_element" name="radio_group" name="color"
+                onchange="interactionMessage('Radio Button 1 Changed')" type="radio"
+                value="blue"> Blue
     </div>
-    <div><input class="selenify-radio-btn" name="radio_group" id="radio2_element" type="radio" name="color"
-                value="green"
-                onchange="interactionMessage('Radio Button 2 Changed')"> Green
+    <div><input class="selenify-radio-btn" id="radio2_element" name="radio_group" name="color"
+                onchange="interactionMessage('Radio Button 2 Changed')"
+                type="radio"
+                value="green"> Green
     </div>
-    <div><input class="selenify-radio-btn" name="radio_group" id="radio3_element" type="radio" name="color" value="red"
-                onchange="interactionMessage('Radio Button 3 Changed')"> Red
+    <div><input class="selenify-radio-btn" id="radio3_element" name="radio_group" name="color"
+                onchange="interactionMessage('Radio Button 3 Changed')" type="radio"
+                value="red"> Red
     </div>
-    <div><input name="checkbox1_element" id="checkbox1_element" type="checkbox" name="vehicle" value="Bike"
-                onchange="interactionMessage('Checkbox Changed')"> I have a bike
+    <div><input id="checkbox1_element" name="checkbox1_element" name="vehicle"
+                onchange="interactionMessage('Checkbox Changed')" type="checkbox"
+                value="Bike"> I have a bike
     </div>
-    <div><input name="checkbox2_element" id="checkbox2_element" type="checkbox" name="vehicle" value="Car" checked
-                onchange="interactionMessage('Checkbox Changed')"> I have a car
+    <div><input checked id="checkbox2_element" name="vehicle" name="checkbox2_element"
+                onchange="interactionMessage('Checkbox Changed')" type="checkbox"
+                value="Car"> I have a car
     </div>
     <input id="submit_element" type="submit">
 </form>
 <!--Test normal and broken image-->
-<img id="image1_element" src="selenium.png" width="128" height="128" onclick="interactionMessage('Image 1 Clicked')">
-<img id="image2_element" src="java.png" width="128" height="128" onclick="interactionMessage('Image 2 Clicked')">
+<img height="128" id="image1_element" onclick="interactionMessage('Image 1 Clicked')" src="selenium.png" width="128">
+<img height="128" id="image2_element" onclick="interactionMessage('Image 2 Clicked')" src="java.png" width="128">
 <!--Test waits-->
 <div id="div_element" onclick="interactionMessage('Div Clicked')">I am a div</div>
 <div id="div2_element" onclick="interactionMessage('Div 2 Clicked')">I am a div too</div>
-<div id="div3_element" style="display: none" onclick="interactionMessage('Div 3 Clicked')">I am a hidden div</div>
-<div id="div4_element" style="display: none" onclick="interactionMessage('Div 4 Clicked')">I am a hidden div</div>
+<div id="div3_element" onclick="interactionMessage('Div 3 Clicked')" style="display: none">I am a hidden div</div>
+<div id="div4_element" onclick="interactionMessage('Div 4 Clicked')" style="display: none">I am a hidden div</div>
 </body>
 </html>
