@@ -49,5 +49,5 @@ jobs:
             -v $(pwd):/app \
             -w /app \
             selenium/standalone-chrome:134.0 \
-            mvn test -Dselenium.grid.url=http://localhost:4444/wd/hub \
-            -Ddriver.chrome.path=/usr/bin/chromedriver
+            sh -c "apt-get update && apt-get install -y maven && mvn test -Dselenium.grid.url=http://localhost:4444/wd/hub -Ddriver.chrome.path=/usr/bin/chromedriver"
+
