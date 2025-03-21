@@ -34,11 +34,5 @@ jobs:
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
           rm chromedriver-linux64.zip
 
-      - name: Verify Browsers and Drivers
-        run: |
-          google-chrome --version || echo "Chrome not found"
-          chromedriver --version || echo "ChromeDriver not found"
-          ls /usr/local/bin | grep 'chromedriver'
-
       - name: Run Selenium Tests
         run: mvn clean test -Ddriver.chrome.path=/usr/local/bin/chromedriver -Ddriver.firefox.path=/usr/local/bin/geckodriver
