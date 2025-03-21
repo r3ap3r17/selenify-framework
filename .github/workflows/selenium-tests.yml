@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Selenium Tests in Docker
         run: |
-          docker run --rm \
+          docker run \
             --network host \
             -v $(pwd):/app \
             -w /app \
