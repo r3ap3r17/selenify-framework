@@ -42,23 +42,11 @@ jobs:
             sleep 5
           done
 
-      - name: Get Chrome Version
-        run: |
-          # Get Chrome version in the Selenium container
-          CHROME_VERSION=$(docker run --rm selenium/standalone-chrome:latest google-chrome --version)
-          echo "Chrome version in container: ${CHROME_VERSION}"
-          # Extract the major version number
-          CHROME_MAJOR_VERSION=$(echo ${CHROME_VERSION} | sed -E 's/.* ([0-9]+)\..*/\1/')
-          echo "Chrome major version: ${CHROME_MAJOR_VERSION}"
-
       - name: Install Matching ChromeDriver
         run: |
-          # Install matching ChromeDriver based on the Chrome major version
-          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION})
-          echo "Downloading ChromeDriver version: ${CHROMEDRIVER_VERSION}"
-          wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+          wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.90/linux64/chromedriver-linux64.zip
           unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
           rm chromedriver_linux64.zip
 
       - name: Run Selenium Tests
