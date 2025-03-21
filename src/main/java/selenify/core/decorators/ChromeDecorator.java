@@ -32,7 +32,8 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 			options.addArguments("--disable-gpu");
 			options.addArguments("--disable-dev-shm-usage");
 		}
-		options.addArguments("--user-data-dir=/tmp/chrome-user-data-" + System.currentTimeMillis());
+		options.addArguments("--remote-debugging-port=9222");
+		options.addArguments("--disable-background-networking");
 		options.addArguments("--no-sandbox");
 
 

@@ -24,6 +24,9 @@ jobs:
           restore-keys: |
             maven-${{ runner.os }}-
 
+      - name: Kill any running Chrome processes
+        run: pkill -f chrome || true
+
       - name: Install Chrome and ChromeDriver
         run: |
           sudo apt-get update
