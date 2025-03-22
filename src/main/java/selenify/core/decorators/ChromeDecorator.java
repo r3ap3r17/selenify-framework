@@ -28,14 +28,14 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 		System.setProperty("webdriver.chrome.driver", path);
 		final ChromeOptions options = new ChromeOptions();
 		if (headless) {
-			options.addArguments("--headless=new"); // when on githubActions
+			options.addArguments("--headless=new");
 			options.addArguments("--disable-gpu");
 			options.addArguments("--disable-dev-shm-usage");
 		}
 		options.addArguments("--remote-debugging-port=9222");
 		options.addArguments("--disable-background-networking");
+		options.addArguments("--user-data-dir=/tmp/user-data");
 		options.addArguments("--no-sandbox");
-		options.addArguments("user-data-dir=myProfile");
 
 		DesiredCapabilities capabilities = getDesiredCapabilities();
 		capabilities.getCapabilityNames().forEach(capability ->
