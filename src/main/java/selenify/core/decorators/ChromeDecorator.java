@@ -4,12 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserBase;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class ChromeDecorator extends SelenifyBrowserBase {
 	private static String path;
@@ -30,8 +26,6 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 	@Override
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", path);
-		System.setProperty("webdriver.chrome.verboseLogging", "true");
-
 		final ChromeOptions options = new ChromeOptions();
 		if (headless) {
 			options.addArguments("--headless=new");
@@ -40,22 +34,13 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 		}
 		options.addArguments("--remote-debugging-port=9222");
 		options.addArguments("--disable-background-networking");
-		options.addArguments("--disable-extensions");
-		options.addArguments("--disable-background-networking");
 		options.addArguments("--no-sandbox");
-		options.addArguments("--user-data-dir=" + System.getProperty("java.io.tmpdir") + "/chrome-profile");
 
 		DesiredCapabilities capabilities = getDesiredCapabilities();
 		capabilities.getCapabilityNames().forEach(capability ->
 				options.setCapability(capability, capabilities.getCapability(capability)));
 
-//		final WebDriver webDriver = new ChromeDriver(options);
-		try {
-			WebDriver webDriver = new RemoteWebDriver(new URL("http://localhost:9515"), options);
-			getSelenifyBrowser().setWebDriver(webDriver);
-		} catch (MalformedURLException e) {
-			// pass
-		}
-
+		final WebDriver webDriver = new ChromeDriver(options);
+		getSelenifyBrowser().setWebDriver(webDriver);
 	}
 }
