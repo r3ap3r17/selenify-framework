@@ -18,7 +18,7 @@ jobs:
           java-version: '20'
           cache: 'maven'
 
-      - name: Install Libraries
+      - name: Setup Env
         run: |
           sudo apt-get update
           sudo apt install libgtk-3-dev libnotify-dev libnss3 libxss1
@@ -33,6 +33,7 @@ jobs:
           unzip chromedriver-linux64.zip
           sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
           sudo chmod +x /usr/bin/chromedriver
+          sudo ln -s /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
       - name: Run Selenium tests
-        run: sudo mvn test -Ddriver.chrome.path=/usr/bin/chromedriver
+        run: mvn test -Ddriver.chrome.path=/usr/bin/chromedriver
