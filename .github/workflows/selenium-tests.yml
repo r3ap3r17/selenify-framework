@@ -18,12 +18,16 @@ jobs:
           java-version: '20'
           cache: 'maven'
 
-      - name: Install Chrome and ChromeDriver
+      - name: Install Libraries
         run: |
           sudo apt-get update
+          sudo apt install libgtk-3-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
+
+      - name: Install Chrome and ChromeDriver
+        run: |
           sudo apt-get install -y google-chrome-stable
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-          echo $CHROME_VERSION
+          echo Chrome version is - "${CHROME_VERSION}"
           sudo apt-get install -y wget unzip
           wget -q "https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip"
           unzip chromedriver-linux64.zip
