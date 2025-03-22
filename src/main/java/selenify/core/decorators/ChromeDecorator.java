@@ -26,6 +26,8 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 	@Override
 	public void init() {
 		System.setProperty("webdriver.chrome.driver", path);
+		System.setProperty("webdriver.chrome.verboseLogging", "true");
+
 		final ChromeOptions options = new ChromeOptions();
 		if (headless) {
 			options.addArguments("--headless=new");
