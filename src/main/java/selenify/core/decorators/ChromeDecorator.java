@@ -4,8 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import selenify.core.SelenifyBrowser;
 import selenify.core.SelenifyBrowserBase;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ChromeDecorator extends SelenifyBrowserBase {
 	private static String path;
@@ -45,7 +49,13 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 		capabilities.getCapabilityNames().forEach(capability ->
 				options.setCapability(capability, capabilities.getCapability(capability)));
 
-		final WebDriver webDriver = new ChromeDriver(options);
-		getSelenifyBrowser().setWebDriver(webDriver);
+//		final WebDriver webDriver = new ChromeDriver(options);
+		try {
+			WebDriver webDriver = new RemoteWebDriver(new URL("http://localhost:9515"), options);
+			getSelenifyBrowser().setWebDriver(webDriver);
+		} catch (MalformedURLException e) {
+			// pass
+		}
+
 	}
 }
