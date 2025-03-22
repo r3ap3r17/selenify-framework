@@ -35,4 +35,4 @@ jobs:
           sudo chmod +x /usr/bin/chromedriver
 
       - name: Run Selenium tests
-        run: mvn test -Ddriver.chrome.path=/usr/bin/chromedriver
+        run: sudo mvn test -Ddriver.chrome.path=/usr/bin/chromedriver
