@@ -33,7 +33,6 @@ jobs:
           unzip chromedriver-linux64.zip
           sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
           sudo chmod +x /usr/bin/chromedriver
-          sudo ln -s /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
       - name: Run Selenium tests
-        run: mvn test -Ddriver.chrome.path=/usr/bin/chromedriver
+        run: mvn clean test -Ddriver.chrome.path=/usr/bin/chromedriver
