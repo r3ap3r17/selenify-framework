@@ -42,7 +42,6 @@ jobs:
           unzip chromedriver-linux64.zip
           sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
           sudo chmod +x /usr/bin/chromedriver
-          sudo cp chromedriver /usr/bin
 
       - name: Run Selenium tests
         run: mvn test -Ddriver.chrome.path=/usr/bin/chromedriver
