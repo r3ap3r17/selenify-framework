@@ -35,6 +35,7 @@ public class ChromeDecorator extends SelenifyBrowserBase {
 		options.addArguments("--remote-debugging-port=9222");
 		options.addArguments("--disable-background-networking");
 		options.addArguments("--no-sandbox");
+		options.addArguments("user-data-dir=myProfile");
 
 		DesiredCapabilities capabilities = getDesiredCapabilities();
 		capabilities.getCapabilityNames().forEach(capability ->
