@@ -18,18 +18,27 @@ jobs:
           java-version: '20'
           cache: 'maven'
 
-      - name: Setup Env
+      - name: Set JAVA_HOME
+        run: echo "JAVA_HOME=${JAVA_HOME_20_X64}" >> $GITHUB_ENV
+
+      - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt install libgtk-3-dev libnotify-dev libnss3 libxss1
+          sudo apt install -y libgtk-3-dev libnotify-dev libnss3 libxss1
 
-      - name: Install Chrome and ChromeDriver
+      - name: Clean Chrome User Data Directory
+        run: rm -rf ~/.config/google-chrome /tmp/chrome-* || true
+
+      - name: Set Chrome User Data Directory
+        run: echo "CHROME_USER_DATA_DIR=$(mktemp -d)" >> $GITHUB_ENV
+
+      - name: Install Compatible Chrome and ChromeDriver
         run: |
           sudo apt-get install -y google-chrome-stable
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-          echo Chrome version is - "${CHROME_VERSION}"
+          echo "Installing Chrome version: ${CHROME_VERSION}"
           sudo apt-get install -y wget unzip
-          wget -q "https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip"
+          wget -q "https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chromedriver-linux64.zip"
           unzip chromedriver-linux64.zip
           sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
           sudo chmod +x /usr/bin/chromedriver
@@ -37,5 +46,10 @@ jobs:
       - name: Kill Existing Chrome Processes
         run: sudo pkill -f chrome || true
 
+      - name: Verify Java & Maven Versions
+        run: |
+          java -version
+          mvn -version
+
       - name: Run Selenium tests
-        run: mvn clean test -Ddriver.chrome.path=/usr/bin/chromedriver
+        run: mvn test -Ddriver.chrome.path=/usr/bin/chromedriver
