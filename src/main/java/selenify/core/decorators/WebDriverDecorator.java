@@ -42,6 +42,11 @@ public class WebDriverDecorator extends SelenifyBrowserBase {
 	}
 
 	@Override
+	public void maximizeWindow() {
+		getWebDriver().manage().window().maximize();
+	}
+
+	@Override
 	public void goTo(final String url) {
 		getWebDriver().get(url);
 	}

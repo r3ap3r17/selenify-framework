@@ -1,4 +1,4 @@
-package selenify.core.decorators.modifiers;
+package selenify.common.modifiers;
 
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpResponse;

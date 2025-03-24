@@ -12,9 +12,9 @@ import org.openqa.selenium.Proxy;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.common.exceptions.SelenifyFileSaveException;
+import selenify.common.modifiers.ProxyRequestModifier;
+import selenify.common.modifiers.ProxyResponseModifier;
 import selenify.core.SelenifyBrowserBase;
-import selenify.core.decorators.modifiers.ProxyRequestModifier;
-import selenify.core.decorators.modifiers.ProxyResponseModifier;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,12 +54,12 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 //		seleniumProxy.setSocksProxy(proxyUrl);
 //		seleniumProxy.setSocksVersion(5);
 
-		final DesiredCapabilities desiredCapabilities =
+		final DesiredCapabilities caps =
 				getSelenifyBrowser().getDesiredCapabilities();
-		desiredCapabilities.setCapability(CapabilityType.PROXY, seleniumProxy);
-		desiredCapabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+		caps.setCapability(CapabilityType.PROXY, seleniumProxy);
+		caps.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
-		return desiredCapabilities;
+		return caps;
 	}
 
 	@Override
@@ -106,7 +106,6 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 	@Override
 	public void modifyRequest(ProxyRequestModifier modifier) {
 		proxy.addRequestFilter(modifier::modify);
-//		getSelenifyBrowser().modifyRequest(modifier);
 	}
 
 	@Override
@@ -122,7 +121,6 @@ public class BrowserMobDecorator extends SelenifyBrowserBase {
 	@Override
 	public void modifyResponse(ProxyResponseModifier modifier) {
 		proxy.addResponseFilter(modifier::modify);
-//		getSelenifyBrowser().modifyResponse(modifier);
 	}
 
 	@Override
