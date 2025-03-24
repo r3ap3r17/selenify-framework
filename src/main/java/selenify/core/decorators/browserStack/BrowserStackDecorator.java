@@ -3,7 +3,7 @@ package selenify.core.decorators.browserStack;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import selenify.common.exceptions.SelenifyConfigurationException;
-import selenify.core.SelenifyBrowserBase;
+import selenify.core.impl.SelenifyBrowserBase;
 
 import java.net.MalformedURLException;
 import java.net.URI;

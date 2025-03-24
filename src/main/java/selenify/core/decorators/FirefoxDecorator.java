@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.core.SelenifyBrowser;
-import selenify.core.SelenifyBrowserBase;
+import selenify.core.impl.SelenifyBrowserBase;
 
 public class FirefoxDecorator extends SelenifyBrowserBase {
 	private static String path;

@@ -1,8 +1,8 @@
-package selenify.utils.locators;
+package selenify.test;
 
-import selenify.utils.locators.impl.Locator;
+import selenify.utils.locators.Locator;
 
-public interface LocatorProvider {
+public interface SelenifyTest {
 	Locator byXpath(String locator, String... args);
 
 	Locator byCss(String locator, String... args);

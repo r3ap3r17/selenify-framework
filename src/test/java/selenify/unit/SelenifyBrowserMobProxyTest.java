@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
 import selenify.core.SelenifyBrowser;
-import selenify.core.SelenifyBrowserFactory;
-import selenify.utils.locators.impl.LocatorUtil;
+import selenify.core.impl.SelenifyBrowserFactory;
+import selenify.test.impl.SelenifyTestBase;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class SelenifyBrowserMobProxyTest extends LocatorUtil {
+public class SelenifyBrowserMobProxyTest extends SelenifyTestBase {
 	private static final String URL = "https://example.com/";
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();

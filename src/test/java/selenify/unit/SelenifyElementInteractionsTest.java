@@ -8,9 +8,9 @@ import selenify.common.constants.BrowserName;
 import selenify.common.exceptions.SelenifyLocatorException;
 import selenify.common.exceptions.SelenifyWebElementException;
 import selenify.core.SelenifyBrowser;
-import selenify.core.SelenifyBrowserFactory;
-import selenify.utils.locators.impl.Locator;
-import selenify.utils.locators.impl.LocatorUtil;
+import selenify.core.impl.SelenifyBrowserFactory;
+import selenify.test.impl.SelenifyTestBase;
+import selenify.utils.locators.Locator;
 
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 @RunWith(Parameterized.class)
-public class SelenifyElementInteractionsTest extends LocatorUtil {
+public class SelenifyElementInteractionsTest extends SelenifyTestBase {
 	private static String HTML_PAGE;
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();

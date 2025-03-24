@@ -1,4 +1,4 @@
-package selenify.utils.locators.impl;
+package selenify.utils.locators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,18 +7,17 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import selenify.common.exceptions.SelenifyLocatorException;
 import selenify.common.exceptions.SelenifyWebElementException;
-import selenify.utils.locators.ExpectedConditionCallback;
-import selenify.utils.locators.LocatorProvider;
+import selenify.common.functional.LocatorConditionCallback;
 
 import java.time.Duration;
 import java.util.MissingFormatArgumentException;
 
-public class LocatorUtil implements LocatorProvider {
-	public WebElement getElement(
+public class LocatorUtil {
+	public static WebElement getElement(
 			WebDriver webDriver,
 			By by,
 			int waitTime,
-			ExpectedConditionCallback expectedConditionCallback) {
+			LocatorConditionCallback expectedConditionCallback) {
 
 		try {
 			final WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(waitTime));
@@ -31,32 +30,27 @@ public class LocatorUtil implements LocatorProvider {
 		}
 	}
 
-	@Override
-	public Locator byXpath(String locator, String... args) {
+	public static Locator byXpath(String locator, String... args) {
 		return new Locator(By.xpath(formatArgs(locator, args)));
 	}
 
-	@Override
-	public Locator byCss(String locator, String... args) {
+	public static Locator byCss(String locator, String... args) {
 		return new Locator(By.cssSelector(formatArgs(locator, args)));
 	}
 
-	@Override
-	public Locator byId(String locator, String... args) {
+	public static Locator byId(String locator, String... args) {
 		return new Locator(By.id(formatArgs(locator, args)));
 	}
 
-	@Override
-	public Locator byName(String locator, String... args) {
+	public static Locator byName(String locator, String... args) {
 		return new Locator(By.name(formatArgs(locator, args)));
 	}
 
-	@Override
-	public Locator byClass(String locator, String... args) {
+	public static Locator byClass(String locator, String... args) {
 		return new Locator(By.className(formatArgs(locator, args)));
 	}
 
-	private String formatArgs(String locator, String... args) {
+	private static String formatArgs(String locator, String... args) {
 		try {
 			return String.format(locator, (Object[]) args);
 		} catch (MissingFormatArgumentException e) {

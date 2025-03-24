@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
 import selenify.core.SelenifyBrowser;
-import selenify.core.SelenifyBrowserFactory;
+import selenify.core.impl.SelenifyBrowserFactory;
 
 import java.util.Arrays;
 

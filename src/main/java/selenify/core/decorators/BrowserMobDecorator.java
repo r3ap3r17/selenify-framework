@@ -12,9 +12,9 @@ import org.openqa.selenium.Proxy;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.common.exceptions.SelenifyFileSaveException;
-import selenify.common.modifiers.ProxyRequestModifier;
-import selenify.common.modifiers.ProxyResponseModifier;
-import selenify.core.SelenifyBrowserBase;
+import selenify.common.functional.ProxyRequestModifier;
+import selenify.common.functional.ProxyResponseModifier;
+import selenify.core.impl.SelenifyBrowserBase;
 
 import java.io.File;
 import java.io.IOException;
