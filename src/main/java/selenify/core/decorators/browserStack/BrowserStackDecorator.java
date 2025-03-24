@@ -6,7 +6,7 @@ import selenify.common.exceptions.SelenifyConfigurationException;
 import selenify.core.SelenifyBrowserBase;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 
 public class BrowserStackDecorator extends SelenifyBrowserBase {
 	private static final String USERNAME_ENV = "BROWSERSTACK_USERNAME";
@@ -22,7 +22,8 @@ public class BrowserStackDecorator extends SelenifyBrowserBase {
 		try {
 			final String url = String.format(URL_TEMPLATE,
 					System.getenv(USERNAME_ENV), System.getenv(AUTOMATE_KEY_ENV));
-			final WebDriver webDriver = new RemoteWebDriver(new URL(url), getDesiredCapabilities());
+
+			final WebDriver webDriver = new RemoteWebDriver(URI.create(url).toURL(), getDesiredCapabilities());
 			getSelenifyBrowser().setWebDriver(webDriver);
 		} catch (MalformedURLException ex) {
 			throw new SelenifyConfigurationException(ex);
