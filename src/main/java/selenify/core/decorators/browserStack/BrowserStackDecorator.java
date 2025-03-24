@@ -11,7 +11,7 @@ import java.net.URL;
 public class BrowserStackDecorator extends SelenifyBrowserBase {
 	private static final String USERNAME_ENV = "BROWSERSTACK_USERNAME";
 	private static final String AUTOMATE_KEY_ENV = "BROWSERSTACK_ACCESS_KEY";
-	private static final String URL_TEMPLATE = "https://%s:%s@hub.browserstack.com/wd/hub\"";
+	private static final String URL_TEMPLATE = "https://%s:%s@hub.browserstack.com/wd/hub";
 
 	public BrowserStackDecorator(final SelenifyBrowserBase automatedBrowser) {
 		super(automatedBrowser);
