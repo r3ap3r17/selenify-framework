@@ -4,8 +4,8 @@ import net.lightbody.bmp.core.har.Har;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import selenify.core.decorators.modifiers.ProxyRequestModifier;
-import selenify.core.decorators.modifiers.ProxyResponseModifier;
+import selenify.common.modifiers.ProxyRequestModifier;
+import selenify.common.modifiers.ProxyResponseModifier;
 import selenify.utils.locators.impl.Locator;
 
 import java.io.File;
@@ -50,6 +50,11 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	@Override
 	public void destroy() {
 		getSelenifyBrowser().destroy();
+	}
+
+	@Override
+	public void maximizeWindow() {
+		getSelenifyBrowser().maximizeWindow();
 	}
 
 	@Override

@@ -1,10 +1,14 @@
 package selenify.core;
 
 import selenify.common.constants.BrowserName;
+import selenify.common.exceptions.SelenifyConfigurationException;
 import selenify.core.decorators.BrowserMobDecorator;
 import selenify.core.decorators.ChromeDecorator;
 import selenify.core.decorators.FirefoxDecorator;
 import selenify.core.decorators.WebDriverDecorator;
+import selenify.core.decorators.browserStack.BrowserStackAndroidDecorator;
+import selenify.core.decorators.browserStack.BrowserStackDecorator;
+import selenify.core.decorators.browserStack.BrowserStackEdgeDecorator;
 
 public class SelenifyBrowserFactory {
 	private static String _path;
@@ -36,17 +40,43 @@ public class SelenifyBrowserFactory {
 				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
 				return getFirefoxBrowser(true);
 			}
-			default -> throw new IllegalArgumentException("Unknown browser " + browser.name);
+			default -> throw new SelenifyConfigurationException("Unknown Browser " + browser.name);
+		}
+	}
+
+	public SelenifyBrowser getAutomatedBrowser(final BrowserName.Remote browser) {
+		switch (browser) {
+			case BROWSER_STACK_EDGE -> {
+				return getBrowserStackEdge();
+			}
+			case BROWSER_STACK_ANDROID -> {
+				return getBrowserStackAndroid();
+			}
+			default -> throw new SelenifyConfigurationException("Unknown Remote Browser " + browser.name);
 		}
 	}
 
 	private SelenifyBrowser getChromeBrowser(final boolean headless) {
 		return new ChromeDecorator(headless, getPath(),
-				new BrowserMobDecorator(new WebDriverDecorator()));
+				new BrowserMobDecorator(new WebDriverDecorator())
+		);
 	}
 
 	private SelenifyBrowser getFirefoxBrowser(final boolean headless) {
 		return new FirefoxDecorator(headless, getPath(),
-				new BrowserMobDecorator(new WebDriverDecorator()));
+				new BrowserMobDecorator(new WebDriverDecorator())
+		);
+	}
+
+	private SelenifyBrowser getBrowserStackEdge() {
+		return new BrowserStackDecorator(
+				new BrowserStackEdgeDecorator(new WebDriverDecorator())
+		);
+	}
+
+	private SelenifyBrowser getBrowserStackAndroid() {
+		return new BrowserStackDecorator(
+				new BrowserStackAndroidDecorator(new WebDriverDecorator())
+		);
 	}
 }
