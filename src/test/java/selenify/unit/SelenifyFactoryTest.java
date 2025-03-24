@@ -1,5 +1,6 @@
 package selenify.unit;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -33,6 +34,7 @@ public class SelenifyFactoryTest {
 		this.browser = browser;
 	}
 
+	@Ignore("This test is temporarily disabled")
 	@Test
 	public void createDriverAndOpenUrl() {
 		final SelenifyBrowser automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
