@@ -7,9 +7,7 @@ import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
 import selenify.common.exceptions.SelenifyLocatorException;
 import selenify.common.exceptions.SelenifyWebElementException;
-import selenify.core.SelenifyBrowser;
-import selenify.core.impl.SelenifyBrowserFactory;
-import selenify.test.impl.SelenifyTestBase;
+import selenify.test.SelenifyTestBase;
 import selenify.utils.locators.Locator;
 
 import java.net.URISyntaxException;
@@ -23,8 +21,6 @@ import static org.junit.Assert.fail;
 @RunWith(Parameterized.class)
 public class SelenifyElementInteractionsTest extends SelenifyTestBase {
 	private static String HTML_PAGE;
-	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
-			= new SelenifyBrowserFactory();
 
 	@Parameterized.Parameters(name = "Browser: {0}")
 	public static Iterable<Object[]> data() {
@@ -65,92 +61,91 @@ public class SelenifyElementInteractionsTest extends SelenifyTestBase {
 
 	@Test
 	public void testElementInteractions() {
-		final SelenifyBrowser automatedBrowser =
-				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
-		automatedBrowser.init();
-		automatedBrowser.goTo(HTML_PAGE);
+		setAutomatedBrowser(browser);
+
+		init();
+		goTo(HTML_PAGE);
 
 		try {
 			// Basic button element
-			automatedBrowser.clickElement(ID_BUTTON);
-			assertEquals("Button Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			clickElement(ID_BUTTON);
+			assertEquals("Button Clicked", getTextFromElement(ID_MESSAGE));
 
 			// Basic input element
-			automatedBrowser.typeToElement(ID_INPUT, "text");
-			assertEquals("Text Input Changed", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			typeToElement(ID_INPUT, "text");
+			assertEquals("Text Input Changed", getTextFromElement(ID_MESSAGE));
 
 			// Select element
-			automatedBrowser.selectOptionByText(ID_SELECT, "Option 2.1");
-			assertEquals("Select Changed", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			selectOptionByText(ID_SELECT, "Option 2.1");
+			assertEquals("Select Changed", getTextFromElement(ID_MESSAGE));
 
 			// Textarea element
-			automatedBrowser.typeToElement(ID_TEXTAREA, "text");
-			assertEquals("Text Area Changed", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			typeToElement(ID_TEXTAREA, "text");
+			assertEquals("Text Area Changed", getTextFromElement(ID_MESSAGE));
 
 			// Basic radio button element
 			AtomicInteger index = new AtomicInteger(1);
-			automatedBrowser.findElements(CSS_RADIO_BTN).forEach(element -> {
+			findElements(CSS_RADIO_BTN).forEach(element -> {
 				element.click();
 				assertEquals(String.format("Radio Button %s Changed", index.get()),
-						automatedBrowser.getTextFromElement(ID_MESSAGE));
+						getTextFromElement(ID_MESSAGE));
 				index.incrementAndGet();
 			});
 
 			// Basic checkbox element
-			automatedBrowser.clickElement(ID_CHECKBOX);
-			assertEquals("Checkbox Changed", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			clickElement(ID_CHECKBOX);
+			assertEquals("Checkbox Changed", getTextFromElement(ID_MESSAGE));
 
 			// Input submit element
-			automatedBrowser.clickElement(ID_FORM_SUBMIT_BTN);
-			assertEquals("Form Submitted", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			clickElement(ID_FORM_SUBMIT_BTN);
+			assertEquals("Form Submitted", getTextFromElement(ID_MESSAGE));
 
 			// Basic Image element
-			automatedBrowser.clickElement(ID_IMAGE_1);
-			assertEquals("Image 1 Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			clickElement(ID_IMAGE_1);
+			assertEquals("Image 1 Clicked", getTextFromElement(ID_MESSAGE));
 
 			// Broken Image element
-			automatedBrowser.clickElement(ID_IMAGE_2);
-			assertEquals("Image 2 Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			clickElement(ID_IMAGE_2);
+			assertEquals("Image 2 Clicked", getTextFromElement(ID_MESSAGE));
 
 			// Basic Div element
-			automatedBrowser.clickElement(ID_DIV_1);
-			assertEquals("Div Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			clickElement(ID_DIV_1);
+			assertEquals("Div Clicked", getTextFromElement(ID_MESSAGE));
 
 			// Basic Div element
-			automatedBrowser.clickElement(ID_DIV_2);
-			assertEquals("Div 2 Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			clickElement(ID_DIV_2);
+			assertEquals("Div 2 Clicked", getTextFromElement(ID_MESSAGE));
 
 			// Div element with delay
-			automatedBrowser.waitForVisible(ID_DIV_3);
-			automatedBrowser.clickElement(ID_DIV_3);
-			assertEquals("Div 3 Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+			waitForVisible(ID_DIV_3);
+			clickElement(ID_DIV_3);
+			assertEquals("Div 3 Clicked", getTextFromElement(ID_MESSAGE));
 
-//			automatedBrowser.waitForVisible(ID_DIV_4);
-//			automatedBrowser.clickElement(ID_DIV_4);
-//			assertEquals("Div 2 Clicked", automatedBrowser.getTextFromElement(ID_MESSAGE));
+//			waitForVisible(ID_DIV_4);
+//			clickElement(ID_DIV_4);
+//			assertEquals("Div 2 Clicked", getTextFromElement(ID_MESSAGE));
 		} finally {
-			automatedBrowser.destroy();
+			destroy();
 		}
 	}
 
 	@Test
 	public void testElementLocatorStrategies() {
-		final SelenifyBrowser automatedBrowser =
-				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
-		automatedBrowser.init();
-		automatedBrowser.goTo(HTML_PAGE);
+		setAutomatedBrowser(browser);
+		init();
+		goTo(HTML_PAGE);
 
 		try {
 			// Basic button element
-			automatedBrowser.waitForVisible(byCss("#button_element"));
-			automatedBrowser.waitForVisible(byXpath("//button[@id='button_element']"));
-			automatedBrowser.waitForVisible(byXpath("//%s[@id='%s']", "button", "button_element"));
-			automatedBrowser.waitForVisible(byName("button_element"));
-			automatedBrowser.waitForVisible(byClass("button_element"));
+			waitForVisible(byCss("#button_element"));
+			waitForVisible(byXpath("//button[@id='button_element']"));
+			waitForVisible(byXpath("//%s[@id='%s']", "button", "button_element"));
+			waitForVisible(byName("button_element"));
+			waitForVisible(byClass("button_element"));
 		} catch (SelenifyWebElementException | SelenifyLocatorException e) {
 			fail("Method should not throw SelenifyWebElementException!");
 		} finally {
-			automatedBrowser.destroy();
+			destroy();
 		}
 	}
 }

@@ -4,15 +4,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
-import selenify.core.SelenifyBrowser;
 import selenify.core.impl.SelenifyBrowserFactory;
+import selenify.test.SelenifyTestBase;
 
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class SelenifyFactoryTest {
+public class SelenifyFactoryTest extends SelenifyTestBase {
 	private static final String URL = "https://example.com/";
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
@@ -35,15 +35,15 @@ public class SelenifyFactoryTest {
 
 	@Test
 	public void createDriverAndOpenUrl() {
-		final SelenifyBrowser automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+		setAutomatedBrowser(browser);
 		try {
-			automatedBrowser.init();
-			automatedBrowser.goTo(URL);
-			assertEquals(URL, automatedBrowser.getCurrentUrl());
+			init();
+			goTo(URL);
+			assertEquals(URL, getCurrentUrl());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		} finally {
-			automatedBrowser.destroy();
+			destroy();
 		}
 	}
 }
