@@ -3,9 +3,9 @@ package selenify.unit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import selenify.base.test.SelenifyTestBase;
 import selenify.common.constants.BrowserName;
 import selenify.core.impl.SelenifyBrowserFactory;
-import selenify.test.SelenifyTestBase;
 
 import java.util.Arrays;
 

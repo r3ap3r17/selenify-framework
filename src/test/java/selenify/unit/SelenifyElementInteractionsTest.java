@@ -7,7 +7,7 @@ import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
 import selenify.common.exceptions.SelenifyLocatorException;
 import selenify.common.exceptions.SelenifyWebElementException;
-import selenify.test.SelenifyTestBase;
+import selenify.base.test.SelenifyTestBase;
 import selenify.utils.locators.Locator;
 
 import java.net.URISyntaxException;

@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
-import selenify.test.SelenifyTestBase;
+import selenify.base.test.SelenifyTestBase;
 
 import java.io.File;
 import java.net.URISyntaxException;
