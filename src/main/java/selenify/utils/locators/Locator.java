@@ -1,4 +1,4 @@
-package selenify.utils.locators.impl;
+package selenify.utils.locators;
 
 import org.openqa.selenium.By;
 

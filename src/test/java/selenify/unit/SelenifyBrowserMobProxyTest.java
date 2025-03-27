@@ -5,9 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.common.constants.BrowserName;
-import selenify.core.SelenifyBrowser;
-import selenify.core.SelenifyBrowserFactory;
-import selenify.utils.locators.impl.LocatorUtil;
+import selenify.test.SelenifyTestBase;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -18,10 +16,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class SelenifyBrowserMobProxyTest extends LocatorUtil {
+public class SelenifyBrowserMobProxyTest extends SelenifyTestBase {
 	private static final String URL = "https://example.com/";
-	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
-			= new SelenifyBrowserFactory();
 
 	@Parameterized.Parameters(name = "Browser: {0}")
 	public static Iterable<Object[]> data() {
@@ -40,58 +36,55 @@ public class SelenifyBrowserMobProxyTest extends LocatorUtil {
 	}
 
 	@Test
-	public void captureHarFile() {
-		SelenifyBrowser automatedBrowser =
-				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+	public void captureHarFileTest() {
+		setAutomatedBrowser(browser);
 		try {
-			automatedBrowser.init();
-			automatedBrowser.captureHarFile();
-			automatedBrowser.goTo(URL);
+			init();
+			captureHarFile();
+			goTo(URL);
 		} finally {
 			try {
-				File har = automatedBrowser.saveHarFile(browser + "_TEST.har");
-				assertEquals("BrowserMob Proxy", automatedBrowser.getHar().getLog().getCreator().getName());
+				File har = saveHarFile(browser + "_TEST.har");
+				assertEquals("BrowserMob Proxy", getHar().getLog().getCreator().getName());
 				assertTrue(har.exists() && har.length() > 0);
 			} finally {
-				automatedBrowser.destroy();
+				destroy();
 			}
 		}
 	}
 
 	@Test
-	public void captureCompleteHarFile() {
-		SelenifyBrowser automatedBrowser =
-				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+	public void captureCompleteHarFileTest() {
+		setAutomatedBrowser(browser);
 		try {
-			automatedBrowser.init();
-			automatedBrowser.captureCompleteHarFile();
-			automatedBrowser.goTo(URL);
+			init();
+			captureCompleteHarFile();
+			goTo(URL);
 		} finally {
 			try {
-				File har = automatedBrowser.saveHarFile(browser + "_COMPLETE_TEST.har");
-				assertEquals("BrowserMob Proxy", automatedBrowser.getHar().getLog().getCreator().getName());
+				File har = saveHarFile(browser + "_COMPLETE_TEST.har");
+				assertEquals("BrowserMob Proxy", getHar().getLog().getCreator().getName());
 				assertTrue(har.exists() && har.length() > 0);
 			} finally {
-				automatedBrowser.destroy();
+				destroy();
 			}
 		}
 	}
 
 	@Test
 	public void blockRequests() {
-		SelenifyBrowser automatedBrowser =
-				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+		setAutomatedBrowser(browser);
 		try {
-			automatedBrowser.init();
-			automatedBrowser.blockRequestTo(".*?\\.png", 201);
-			automatedBrowser.goTo("https://google.com/");
+			init();
+			blockRequestTo(".*?\\.png", 201);
+			goTo("https://google.com/");
 		} finally {
-			automatedBrowser.destroy();
+			destroy();
 		}
 	}
 
 	@Test
-	public void modifyRequests() throws URISyntaxException {
+	public void modifyRequestsTest() throws URISyntaxException {
 		final String REQ_BODY_TITLE = "New title !";
 		final String uri = "/todos/7";
 		final String responseBody = "{\"userId\": 1, \"id\": 1, \"title\": \"" + REQ_BODY_TITLE + "\", \"completed\": false}";
@@ -99,12 +92,11 @@ public class SelenifyBrowserMobProxyTest extends LocatorUtil {
 		String HTML_PAGE = Objects.requireNonNull(SelenifyElementInteractionsTest.class.
 				getResource("/api-mock-page.html")).toURI().toString();
 
-		SelenifyBrowser automatedBrowser =
-				AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
+		setAutomatedBrowser(browser);
 		try {
-			automatedBrowser.init();
+			init();
 			// Modify response and validate a new value is parsed and displayed on page
-			automatedBrowser.modifyResponse((response, contents, messageInfo) -> {
+			modifyResponse((response, contents, messageInfo) -> {
 				if (messageInfo.getOriginalUrl().contains(uri)) {
 					contents.setTextContents(responseBody);
 					response.setStatus(HttpResponseStatus.OK);
@@ -112,11 +104,11 @@ public class SelenifyBrowserMobProxyTest extends LocatorUtil {
 					response.headers().set("Content-Type", "application/json; charset=UTF-8");
 				}
 			});
-			automatedBrowser.goTo(HTML_PAGE);
-			automatedBrowser.waitForVisible(byId("p-title"));
-			assertEquals(REQ_BODY_TITLE, automatedBrowser.getTextFromElement(byId("p-title")));
+			goTo(HTML_PAGE);
+			waitForVisible(byId("p-title"));
+			assertEquals(REQ_BODY_TITLE, getTextFromElement(byId("p-title")));
 		} finally {
-			automatedBrowser.destroy();
+			destroy();
 		}
 	}
 }

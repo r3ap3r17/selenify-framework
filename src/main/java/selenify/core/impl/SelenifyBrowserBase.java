@@ -1,12 +1,13 @@
-package selenify.core;
+package selenify.core.impl;
 
 import net.lightbody.bmp.core.har.Har;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import selenify.common.modifiers.ProxyRequestModifier;
-import selenify.common.modifiers.ProxyResponseModifier;
-import selenify.utils.locators.impl.Locator;
+import selenify.common.functional.ProxyRequestModifier;
+import selenify.common.functional.ProxyResponseModifier;
+import selenify.core.SelenifyBrowser;
+import selenify.utils.locators.Locator;
 
 import java.io.File;
 import java.util.List;

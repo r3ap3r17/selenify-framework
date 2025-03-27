@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import selenify.core.SelenifyBrowser;
-import selenify.core.SelenifyBrowserBase;
+import selenify.core.impl.SelenifyBrowserBase;
 
 public class ChromeDecorator extends SelenifyBrowserBase {
 	private static String path;

@@ -6,10 +6,12 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-/.idea/
 *.iws
 *.iml
 *.ipr
+/.idea/git_toolbox_prj.xml
+/.idea/workspace.xml
+/.idea/*
 
 ### Eclipse ###
 .apt_generated

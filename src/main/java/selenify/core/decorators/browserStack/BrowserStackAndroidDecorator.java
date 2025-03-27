@@ -1,7 +1,7 @@
 package selenify.core.decorators.browserStack;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
-import selenify.core.SelenifyBrowserBase;
+import selenify.core.impl.SelenifyBrowserBase;
 
 import java.util.HashMap;
 

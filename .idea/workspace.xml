@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="added support for complete har file capture">
+    <list default="true" id="e454b697-7173-4be9-91bd-e3786229b522" name="Changes" comment="ignore">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/SelenifyBrowserBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/BrowserMobDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/selenify/core/decorators/BrowserMobDecorator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +113,7 @@
     "TestNG.TestTemplate.executor": "Run",
     "TestNG.driverInstance.CreateFirefoxDriverInstanceTest and 1 more.executor": "Run",
     "TestNG.driverInstance.executor": "Run",
-    "git-widget-placeholder": "release/v2.0.0",
+    "git-widget-placeholder": "release/v3.0.0",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "F:/Coding_Projects/IdeaProjects/src/test/java",
     "last_opened_file_path": "/home/bveljko/IdeaProjects/personal/selenify-framework/target/har/CHROME_TEST.har",
@@ -453,6 +450,7 @@
     <MESSAGE value="formatter" />
     <MESSAGE value="refactored tests" />
     <MESSAGE value="added support for complete har file capture" />
-    <option name="LAST_COMMIT_MESSAGE" value="added support for complete har file capture" />
+    <MESSAGE value="ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="ignore" />
   </component>
 </project>

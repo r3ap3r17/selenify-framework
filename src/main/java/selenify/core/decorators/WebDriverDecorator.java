@@ -6,15 +6,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import selenify.common.constants.Timeouts;
 import selenify.core.SelenifyBrowser;
-import selenify.core.SelenifyBrowserBase;
-import selenify.utils.locators.impl.Locator;
-import selenify.utils.locators.impl.LocatorUtil;
+import selenify.core.impl.SelenifyBrowserBase;
+import selenify.utils.locators.Locator;
+import selenify.utils.locators.LocatorUtil;
 
 import java.util.List;
 
 public class WebDriverDecorator extends SelenifyBrowserBase {
 	private static final int DEFAULT_TIMEOUT = Timeouts.MEDIUM;
-	private static final LocatorUtil LOCATOR_UTIL = new LocatorUtil();
 	private WebDriver webDriver;
 
 
@@ -73,7 +72,7 @@ public class WebDriverDecorator extends SelenifyBrowserBase {
 
 	@Override
 	public void waitForVisible(Locator locator, int waitTimeMilis) {
-		LOCATOR_UTIL.getElement(
+		LocatorUtil.getElement(
 				getWebDriver(),
 				locator.getBy(),
 				waitTimeMilis,
@@ -87,7 +86,7 @@ public class WebDriverDecorator extends SelenifyBrowserBase {
 
 	@Override
 	public void waitForPresent(Locator locator, int waitTimeMilis) {
-		LOCATOR_UTIL.getElement(
+		LocatorUtil.getElement(
 				getWebDriver(),
 				locator.getBy(),
 				waitTimeMilis,

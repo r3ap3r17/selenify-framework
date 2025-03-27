@@ -1,7 +1,8 @@
-package selenify.core;
+package selenify.core.impl;
 
 import selenify.common.constants.BrowserName;
 import selenify.common.exceptions.SelenifyConfigurationException;
+import selenify.core.SelenifyBrowser;
 import selenify.core.decorators.BrowserMobDecorator;
 import selenify.core.decorators.ChromeDecorator;
 import selenify.core.decorators.FirefoxDecorator;
