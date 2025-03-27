@@ -1,4 +1,4 @@
-package selenify.component;
+package selenify.base.component;
 
 import net.lightbody.bmp.core.har.Har;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +21,7 @@ public class SelenifyComponentBase implements SelenifyBrowser {
 			= new SelenifyBrowserFactory();
 
 
-	public SelenifyBrowser getAutomatedBrowser() {
+	private SelenifyBrowser getAutomatedBrowser() {
 		return automatedBrowser;
 	}
 
@@ -32,7 +32,6 @@ public class SelenifyComponentBase implements SelenifyBrowser {
 	public void setAutomatedBrowser(BrowserName.Remote browser) {
 		this.automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 	}
-
 
 	public Locator byXpath(String locator, String... args) {
 		return LocatorUtil.byXpath(locator, args);
