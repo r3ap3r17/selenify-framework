@@ -1,5 +1,6 @@
 package selenify.core.decorators.browserStack;
 
+import net.lightbody.bmp.core.har.Har;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import selenify.common.exceptions.SelenifyConfigurationException;
@@ -28,5 +29,11 @@ public class BrowserStackDecorator extends SelenifyBrowserBase {
 		} catch (MalformedURLException ex) {
 			throw new SelenifyConfigurationException(ex);
 		}
+	}
+
+	@Override
+	public Har getHar() {
+		// currently unsupported
+		return null;
 	}
 }

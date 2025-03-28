@@ -1,5 +1,7 @@
 package selenify.core.decorators;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,6 +12,7 @@ import selenify.core.impl.SelenifyBrowserBase;
 import selenify.utils.locators.Locator;
 import selenify.utils.locators.LocatorUtil;
 
+import java.io.File;
 import java.util.List;
 
 public class WebDriverDecorator extends SelenifyBrowserBase {
@@ -48,6 +51,11 @@ public class WebDriverDecorator extends SelenifyBrowserBase {
 	@Override
 	public void goTo(final String url) {
 		getWebDriver().get(url);
+	}
+
+	@Override
+	public File getScreenshot() {
+		return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.FILE);
 	}
 
 	@Override

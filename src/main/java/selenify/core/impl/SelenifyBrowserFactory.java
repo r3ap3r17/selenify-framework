@@ -7,9 +7,9 @@ import selenify.core.decorators.BrowserMobDecorator;
 import selenify.core.decorators.ChromeDecorator;
 import selenify.core.decorators.FirefoxDecorator;
 import selenify.core.decorators.WebDriverDecorator;
-import selenify.core.decorators.browserStack.BrowserStackAndroidDecorator;
 import selenify.core.decorators.browserStack.BrowserStackDecorator;
 import selenify.core.decorators.browserStack.BrowserStackEdgeDecorator;
+import selenify.core.decorators.browserStack.BrowserStackIOSDecorator;
 
 public class SelenifyBrowserFactory {
 	private static String _path;
@@ -50,7 +50,7 @@ public class SelenifyBrowserFactory {
 			case BROWSER_STACK_EDGE -> {
 				return getBrowserStackEdge();
 			}
-			case BROWSER_STACK_ANDROID -> {
+			case BROWSER_STACK_IOS -> {
 				return getBrowserStackAndroid();
 			}
 			default -> throw new SelenifyConfigurationException("Unknown Remote Browser " + browser.name);
@@ -77,7 +77,7 @@ public class SelenifyBrowserFactory {
 
 	private SelenifyBrowser getBrowserStackAndroid() {
 		return new BrowserStackDecorator(
-				new BrowserStackAndroidDecorator(new WebDriverDecorator())
+				new BrowserStackIOSDecorator(new WebDriverDecorator())
 		);
 	}
 }

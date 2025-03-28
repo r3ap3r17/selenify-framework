@@ -11,10 +11,6 @@ public class SelenifyReporterBase implements SelenifyReporter {
 		this._selenifyReporter = automatedBrowser;
 	}
 
-	private SelenifyReporter getSelenifyReporter() {
-		return _selenifyReporter;
-	}
-
 	@Override
 	public void logStart() {
 		getSelenifyReporter().logStart();
@@ -33,5 +29,9 @@ public class SelenifyReporterBase implements SelenifyReporter {
 	@Override
 	public void markAsFailed() {
 		getSelenifyReporter().markAsFailed();
+	}
+
+	private SelenifyReporter getSelenifyReporter() {
+		return _selenifyReporter;
 	}
 }

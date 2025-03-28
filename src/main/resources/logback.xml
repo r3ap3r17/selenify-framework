@@ -3,8 +3,8 @@
 
     <!-- Root logger configuration -->
     <root level="info">
-        <appender-ref ref="STDOUT" />
-        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
     </root>
 
     <!-- Console Appender -->
@@ -32,13 +32,13 @@
 
     <!-- Loggers for specific packages -->
     <logger name="org.openqa.selenium" level="info">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <logger name="com.selenify" level="info">
-        <appender-ref ref="FILE" />
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 
 </configuration>

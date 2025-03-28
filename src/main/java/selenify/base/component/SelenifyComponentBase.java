@@ -16,20 +16,22 @@ import java.io.File;
 import java.util.List;
 
 public class SelenifyComponentBase implements SelenifyBrowser {
-	private SelenifyBrowser automatedBrowser;
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
+	public String browserName;
+	private SelenifyBrowser automatedBrowser;
 
-
-	private SelenifyBrowser getAutomatedBrowser() {
-		return automatedBrowser;
+	public String getBrowserName() {
+		return browserName;
 	}
 
 	public void setAutomatedBrowser(BrowserName browser) {
+		setBrowserName(browser.toString());
 		this.automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 	}
 
 	public void setAutomatedBrowser(BrowserName.Remote browser) {
+		setBrowserName(browser.toString());
 		this.automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 	}
 
@@ -83,6 +85,11 @@ public class SelenifyComponentBase implements SelenifyBrowser {
 
 	public void goTo(String url) {
 		getAutomatedBrowser().goTo(url);
+	}
+
+	@Override
+	public File getScreenshot() {
+		return getAutomatedBrowser().getScreenshot();
 	}
 
 	@Override
@@ -188,5 +195,13 @@ public class SelenifyComponentBase implements SelenifyBrowser {
 	@Override
 	public void typeToElement(Locator locator, String text) {
 		getAutomatedBrowser().typeToElement(locator, text);
+	}
+
+	private void setBrowserName(String browserName) {
+		this.browserName = browserName;
+	}
+
+	private SelenifyBrowser getAutomatedBrowser() {
+		return automatedBrowser;
 	}
 }
