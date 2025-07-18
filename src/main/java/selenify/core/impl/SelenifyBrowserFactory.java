@@ -23,22 +23,26 @@ public class SelenifyBrowserFactory {
 	}
 
 	public SelenifyBrowser getAutomatedBrowser(final BrowserName browser) {
-		String PROPERTY_BASE = "driver.%s.path";
+		String BROWSER_PROPERTY = switch (browser) {
+			case CHROME, CHROME_HEADLESS -> System.getProperty("driver.chrome.path");
+			case FIREFOX, FIREFOX_HEADLESS -> System.getProperty("driver.gecko.path");
+		};
+
 		switch (browser) {
 			case CHROME -> {
-				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
+				setPath(BROWSER_PROPERTY);
 				return getChromeBrowser(false);
 			}
 			case CHROME_HEADLESS -> {
-				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
+				setPath(BROWSER_PROPERTY);
 				return getChromeBrowser(true);
 			}
 			case FIREFOX -> {
-				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
+				setPath(BROWSER_PROPERTY);
 				return getFirefoxBrowser(false);
 			}
 			case FIREFOX_HEADLESS -> {
-				setPath(System.getProperty(String.format(PROPERTY_BASE, browser.name.toLowerCase())));
+				setPath(BROWSER_PROPERTY);
 				return getFirefoxBrowser(true);
 			}
 			default -> throw new SelenifyConfigurationException("Unknown Browser " + browser.name);

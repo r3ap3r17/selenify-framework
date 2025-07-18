@@ -2,7 +2,7 @@ package selenify.common.constants;
 
 public enum BrowserName {
 	CHROME("Chrome"), FIREFOX("Firefox"),
-	CHROME_HEADLESS("Chrome"), FIREFOX_HEADLESS("Firefox");
+	CHROME_HEADLESS("ChromeHeadless"), FIREFOX_HEADLESS("FirefoxHeadless");
 
 	public enum Remote {
 		BROWSER_STACK_EDGE("BrowserStackEdge"), BROWSER_STACK_IOS("BrowserStackIOS");

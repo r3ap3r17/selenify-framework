@@ -1,11 +1,11 @@
 package selenify.common.constants;
 
-public enum ReporterName {
+public enum ReportManagerName {
 	XRAY("XRay"), TESTRAIL("TestRail");
 
 	public String name;
 
-	ReporterName(String name) {
+	ReportManagerName(String name) {
 		this.name = name;
 	}
 }

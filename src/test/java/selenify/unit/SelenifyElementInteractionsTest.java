@@ -62,8 +62,8 @@ public class SelenifyElementInteractionsTest extends SelenifyTestBase {
 	public void testElementInteractions() {
 		setAutomatedBrowser(browser);
 		init();
-
 		goTo(HTML_PAGE);
+
 		// Basic button element
 		clickElement(ID_BUTTON);
 		assertEquals("Button Clicked", getTextFromElement(ID_MESSAGE));
@@ -123,7 +123,6 @@ public class SelenifyElementInteractionsTest extends SelenifyTestBase {
 	public void testElementLocatorStrategies() {
 		setAutomatedBrowser(browser);
 		init();
-
 		goTo(HTML_PAGE);
 
 		try {

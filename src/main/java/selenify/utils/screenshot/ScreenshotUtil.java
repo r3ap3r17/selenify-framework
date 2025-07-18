@@ -1,24 +1,28 @@
 package selenify.utils.screenshot;
 
 import org.apache.commons.io.FileUtils;
+import selenify.common.constants.FileType;
 import selenify.common.exceptions.SelenifyFileSaveException;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ScreenshotUtil {
-	public static String saveScreenshot(File screensot, String testName) {
-		String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-		String screenshotPath = "target/screenshots/" + testName + "_" + timestamp + ".png";
-		File destination = new File(screenshotPath);
+	private static final String DEFAULT_SC_PATH = "target/screenshots/";
+
+	public static String saveScreenshot(File screenshot, String destination, String scName, FileType fileType) {
+		String screenshotPath = destination + scName + fileType.name;
+		File dest = new File(screenshotPath);
 
 		try {
-			FileUtils.copyFile(screensot, destination);
+			FileUtils.copyFile(screenshot, dest);
 		} catch (IOException e) {
-			throw new SelenifyFileSaveException("Could not save screenshot to " + destination, e);
+			throw new SelenifyFileSaveException("Could not save screenshot to " + dest, e);
 		}
-		return destination.getAbsolutePath();
+		return dest.getAbsolutePath();
+	}
+
+	public static String saveScreenshot(File screenshot, String scName) {
+		return saveScreenshot(screenshot, DEFAULT_SC_PATH, scName, FileType.PNG);
 	}
 }

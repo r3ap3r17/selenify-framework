@@ -13,6 +13,8 @@ import selenify.utils.locators.Locator;
 import selenify.utils.locators.LocatorUtil;
 
 import java.io.File;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 public class SelenifyComponentBase implements SelenifyBrowser {
@@ -26,6 +28,7 @@ public class SelenifyComponentBase implements SelenifyBrowser {
 	}
 
 	public void setAutomatedBrowser(BrowserName browser) {
+		System.out.println("SET - " + browser.name + Timestamp.from(Instant.now()));
 		setBrowserName(browser.toString());
 		this.automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 	}

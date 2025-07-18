@@ -33,7 +33,6 @@ public class SelenifyBrowserStackTest extends SelenifyTestBase {
 		setAutomatedBrowser(browser);
 		init();
 		maximizeWindow();
-
 		goTo(URL);
 		assertEquals(URL, getCurrentUrl());
 	}

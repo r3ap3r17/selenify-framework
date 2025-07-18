@@ -1,100 +1,130 @@
 package selenify.base.test;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import selenify.base.component.SelenifyComponentBase;
-import selenify.common.constants.ReporterName;
-import selenify.reporter.SelenifyReporter;
-import selenify.reporter.impl.SelenifyReporterFactory;
-import selenify.utils.extentReports.ExtentManager;
+import selenify.common.constants.BrowserName;
+import selenify.common.constants.ReportGeneratorName;
+import selenify.common.constants.ReportManagerName;
+import selenify.reporting.generated.SelenifyReportGenerator;
+import selenify.reporting.generated.decorators.ExtentReportsDecorator;
+import selenify.reporting.generated.impl.SelenifyReportGeneratorFactory;
+import selenify.reporting.management.SelenifyReportManager;
+import selenify.reporting.management.impl.SelenifyReportManagerFactory;
 import selenify.utils.screenshot.ScreenshotUtil;
 
 import java.io.File;
-import java.util.UUID;
 
-public class SelenifyTestBase extends SelenifyComponentBase implements SelenifyReporter {
-	protected static ExtentReports extent = ExtentManager.getInstance();
-	protected static ExtentTest suite = extent.createTest(SelenifyTestBase.class.getPackage().getName());
-	protected static ExtentTest clazz;
-	protected static ExtentTest test;
-	private static final SelenifyReporterFactory REPORTER = new SelenifyReporterFactory();
+public class SelenifyTestBase extends SelenifyComponentBase implements SelenifyReportManager, SelenifyReportGenerator {
+	private static final SelenifyReportManagerFactory REPORT_MANAGER = new SelenifyReportManagerFactory();
+	private static final SelenifyReportGeneratorFactory REPORT_GENERATOR = new SelenifyReportGeneratorFactory();
 
-	@BeforeClass
-	public static void setupExtent() {
-		clazz = suite.createNode(SelenifyTestBase.class.getSimpleName());
+	public SelenifyTestBase() {
+		setAutomatedBrowser(BrowserName.CHROME_HEADLESS);
+		setReportManager(ReportManagerName.TESTRAIL);
+		setReportGenerator(ReportGeneratorName.EXTENT_REPORT);
 	}
 
 	@AfterClass
 	public static void tearDown() {
-		extent.flush();
+		ExtentReportsDecorator.flush(); // find a better way to do this
 	}
 
-	// TODO: Implement same decorator pattern to be able to have different reporters
 	@Rule
 	public TestWatcher _watcher = new TestWatcher() {
 		@Override
 		protected void starting(Description description) {
-			test = clazz.createNode(description.getMethodName());
-			setReporter(ReporterName.XRAY);
+			testStarting(description);
 			logStart();
 		}
 
 		@Override
 		protected void finished(Description description) {
-			test.info("Browser: " + getBrowserName());
+			String harPath = null;
 			if (getHar() != null) {
-				File har = saveHarFile(description.getClassName() + UUID.randomUUID() + "_logs.har");
-				test.info("Network Log: <a href='" + har.getAbsolutePath() + "' target='_blank'>HAR File</a>");
+				File har = saveHarFile(description.getMethodName() + "_logs.har");
+				harPath = har.getAbsolutePath();
 			}
-			destroy();
+			testFinished(description, getBrowserName(), harPath);
 			logFinish();
+			destroy();
 		}
 
 		@Override
 		protected void failed(Throwable e, Description description) {
-			test.fail("Test failed: " + e.getMessage())
-					.addScreenCaptureFromPath(ScreenshotUtil.saveScreenshot(getScreenshot(), description.getMethodName()));
+			testFailed(e, description, ScreenshotUtil.saveScreenshot(getScreenshot(), description.getMethodName()));
 			markAsFailed();
 		}
 
 		@Override
 		protected void succeeded(Description description) {
-			test.pass("Test passed: " + description.getMethodName());
+			testPassed(description);
 			markAsPassed();
 		}
 	};
-	private SelenifyReporter selenifyReporter;
+	private SelenifyReportManager selenifyReportManager;
+	private SelenifyReportGenerator selenifyReportGenerator;
 
-	public void setReporter(ReporterName reporter) {
-		this.selenifyReporter = REPORTER.getSelenifyReporter(reporter, this);
+	@Override
+	public void log(String text) {
+		getReportManager().log(text);
 	}
 
 	@Override
 	public void logStart() {
-		getReporter().logStart();
+		getReportManager().logStart();
 	}
 
 	@Override
 	public void logFinish() {
-		getReporter().logFinish();
+		getReportManager().logFinish();
 	}
 
 	@Override
 	public void markAsPassed() {
-		getReporter().markAsPassed();
+		getReportManager().markAsPassed();
 	}
 
 	@Override
 	public void markAsFailed() {
-		getReporter().markAsFailed();
+		getReportManager().markAsFailed();
 	}
 
-	private SelenifyReporter getReporter() {
-		return selenifyReporter;
+	@Override
+	public void testStarting(Description description) {
+		getReportGenerator().testStarting(description);
+	}
+
+	@Override
+	public void testPassed(Description description) {
+		getReportGenerator().testPassed(description);
+	}
+
+	@Override
+	public void testFailed(Throwable e, Description description, String screenshotPath) {
+		getReportGenerator().testFailed(e, description, screenshotPath);
+	}
+
+	@Override
+	public void testFinished(Description description, String browserName, String harPath) {
+		getReportGenerator().testFinished(description, browserName, harPath);
+	}
+
+	private void setReportManager(ReportManagerName reportManager) {
+		this.selenifyReportManager = REPORT_MANAGER.getSelenifyReportManager(reportManager, this);
+	}
+
+	private void setReportGenerator(ReportGeneratorName reportGenerator) {
+		this.selenifyReportGenerator = REPORT_GENERATOR.getSelenifyReportGenerator(reportGenerator, this);
+	}
+
+	private SelenifyReportManager getReportManager() {
+		return selenifyReportManager;
+	}
+
+	private SelenifyReportGenerator getReportGenerator() {
+		return selenifyReportGenerator;
 	}
 }

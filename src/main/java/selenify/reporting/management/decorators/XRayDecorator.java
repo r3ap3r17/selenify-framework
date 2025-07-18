@@ -1,16 +1,16 @@
-package selenify.reporter.decorators;
+package selenify.reporting.management.decorators;
 
 import org.slf4j.Logger;
-import selenify.reporter.SelenifyReporter;
-import selenify.reporter.impl.SelenifyReporterBase;
+import selenify.reporting.management.SelenifyReportManager;
+import selenify.reporting.management.impl.SelenifyReportManagerBase;
 import selenify.utils.logging.LoggerUtils;
 
-public class XRayDecorator extends SelenifyReporterBase {
+public class XRayDecorator extends SelenifyReportManagerBase {
 	private final Logger logger = LoggerUtils.getLogger(this.getClass());
 
 	public XRayDecorator() {}
 
-	public XRayDecorator(final SelenifyReporter selenifyReporter) {
+	public XRayDecorator(final SelenifyReportManager selenifyReporter) {
 		super(selenifyReporter);
 	}
 

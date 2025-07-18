@@ -17,8 +17,8 @@ public class SelenifyFactoryTest extends SelenifyTestBase {
 	@Parameterized.Parameters(name = "Browser: {0}")
 	public static Iterable<Object[]> data() {
 		return Arrays.asList(new Object[][]{
-//				{BrowserName.CHROME},
-//				{BrowserName.FIREFOX},
+				{BrowserName.CHROME},
+				{BrowserName.FIREFOX},
 				{BrowserName.CHROME_HEADLESS},
 				{BrowserName.FIREFOX_HEADLESS}
 		});
@@ -34,7 +34,6 @@ public class SelenifyFactoryTest extends SelenifyTestBase {
 	public void createDriverAndOpenUrl() {
 		setAutomatedBrowser(browser);
 		init();
-
 		goTo(URL);
 		assertEquals(URL, getCurrentUrl());
 	}

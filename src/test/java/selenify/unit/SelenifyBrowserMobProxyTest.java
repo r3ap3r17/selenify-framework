@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import selenify.base.test.SelenifyTestBase;
 import selenify.common.constants.BrowserName;
-import selenify.common.constants.ReporterName;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -72,7 +71,7 @@ public class SelenifyBrowserMobProxyTest extends SelenifyTestBase {
 	}
 
 	@Test
-	public void modifyRequestsTest() throws URISyntaxException {
+	public void modifyResponseTest() throws URISyntaxException {
 		final String REQ_BODY_TITLE = "New title !";
 		final String uri = "/todos/7";
 		final String responseBody = "{\"userId\": 1, \"id\": 1, \"title\": \"" + REQ_BODY_TITLE + "\", \"completed\": false}";
@@ -81,7 +80,6 @@ public class SelenifyBrowserMobProxyTest extends SelenifyTestBase {
 				getResource("/api-mock-page.html")).toURI().toString();
 
 		setAutomatedBrowser(browser);
-		setReporter(ReporterName.XRAY);
 		init();
 
 		// Modify response and validate a new value is parsed and displayed on page
