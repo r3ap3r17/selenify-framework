@@ -64,6 +64,11 @@ public class SelenifyBrowserBase implements SelenifyBrowser {
 	}
 
 	@Override
+	public File getScreenshot() {
+		return getSelenifyBrowser().getScreenshot();
+	}
+
+	@Override
 	public String getCurrentUrl() {
 		return getSelenifyBrowser().getCurrentUrl();
 	}

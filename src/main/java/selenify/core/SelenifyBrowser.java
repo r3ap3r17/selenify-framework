@@ -27,6 +27,8 @@ public interface SelenifyBrowser {
 
 	void goTo(String url);
 
+	File getScreenshot();
+
 	String getCurrentUrl();
 
 	Har getHar();

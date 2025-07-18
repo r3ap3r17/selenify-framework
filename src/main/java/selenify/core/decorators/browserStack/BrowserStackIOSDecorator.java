@@ -5,8 +5,8 @@ import selenify.core.impl.SelenifyBrowserBase;
 
 import java.util.HashMap;
 
-public class BrowserStackAndroidDecorator extends SelenifyBrowserBase {
-	public BrowserStackAndroidDecorator(final SelenifyBrowserBase automatedBrowser) {
+public class BrowserStackIOSDecorator extends SelenifyBrowserBase {
+	public BrowserStackIOSDecorator(final SelenifyBrowserBase automatedBrowser) {
 		super(automatedBrowser);
 	}
 

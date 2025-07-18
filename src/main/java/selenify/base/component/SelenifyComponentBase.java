@@ -1,4 +1,4 @@
-package selenify.component;
+package selenify.base.component;
 
 import net.lightbody.bmp.core.har.Har;
 import org.openqa.selenium.WebDriver;
@@ -13,26 +13,30 @@ import selenify.utils.locators.Locator;
 import selenify.utils.locators.LocatorUtil;
 
 import java.io.File;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 public class SelenifyComponentBase implements SelenifyBrowser {
-	private SelenifyBrowser automatedBrowser;
 	private static final SelenifyBrowserFactory AUTOMATED_BROWSER_FACTORY
 			= new SelenifyBrowserFactory();
+	public String browserName;
+	private SelenifyBrowser automatedBrowser;
 
-
-	public SelenifyBrowser getAutomatedBrowser() {
-		return automatedBrowser;
+	public String getBrowserName() {
+		return browserName;
 	}
 
 	public void setAutomatedBrowser(BrowserName browser) {
+		System.out.println("SET - " + browser.name + Timestamp.from(Instant.now()));
+		setBrowserName(browser.toString());
 		this.automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 	}
 
 	public void setAutomatedBrowser(BrowserName.Remote browser) {
+		setBrowserName(browser.toString());
 		this.automatedBrowser = AUTOMATED_BROWSER_FACTORY.getAutomatedBrowser(browser);
 	}
-
 
 	public Locator byXpath(String locator, String... args) {
 		return LocatorUtil.byXpath(locator, args);
@@ -84,6 +88,11 @@ public class SelenifyComponentBase implements SelenifyBrowser {
 
 	public void goTo(String url) {
 		getAutomatedBrowser().goTo(url);
+	}
+
+	@Override
+	public File getScreenshot() {
+		return getAutomatedBrowser().getScreenshot();
 	}
 
 	@Override
@@ -189,5 +198,13 @@ public class SelenifyComponentBase implements SelenifyBrowser {
 	@Override
 	public void typeToElement(Locator locator, String text) {
 		getAutomatedBrowser().typeToElement(locator, text);
+	}
+
+	private void setBrowserName(String browserName) {
+		this.browserName = browserName;
+	}
+
+	private SelenifyBrowser getAutomatedBrowser() {
+		return automatedBrowser;
 	}
 }
